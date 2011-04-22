@@ -20,6 +20,9 @@
     NSDictionary *parsedMilestones = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterMilestonsJSON error:nil];
     NSArray *milestones = [[parsedMilestones valueForKey:@"milestones"] allObjects];
     
+    // Reverse the order to sort by created date
+    milestones = [[milestones reverseObjectEnumerator] allObjects];
+    
     // Return the milestones
     return milestones;
 }
