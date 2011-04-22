@@ -7,15 +7,27 @@
 //
 
 #import "SifterAppDelegate.h"
+#import "RootViewController.h"
 
 @implementation SifterAppDelegate
 
 
 @synthesize window=_window;
+@synthesize navigationController;
+@synthesize rootViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    RootViewController *aRootViewController = [[RootViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    self.rootViewController = aRootViewController;
+    [aRootViewController release];
+    
+    UINavigationController *aNavigationController = [[UINavigationController alloc] initWithRootViewController:aRootViewController];
+    self.navigationController = aNavigationController;
+    [aNavigationController release];
+    
+    [self.window addSubview:[navigationController view]];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
