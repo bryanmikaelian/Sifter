@@ -83,7 +83,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section 
 {
-	return @"Active Projects";
+	return @"Unarchived Projects";
 }
 
 
