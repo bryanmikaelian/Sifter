@@ -27,6 +27,7 @@
 		8E40AFDF13611AEE00FE0808 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD213611AEE00FE0808 /* CJSONDeserializer.m */; };
 		8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD413611AEE00FE0808 /* CJSONScanner.m */; };
 		8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */; };
+		8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCE9C1361C90F00937511 /* Milestone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		8E40AFD513611AEE00FE0808 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		8E40AFD713611AEE00FE0808 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		8E7CCE9B1361C90F00937511 /* Milestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Milestone.h; sourceTree = "<group>"; };
+		8E7CCE9C1361C90F00937511 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Milestone.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +119,8 @@
 			children = (
 				8E40AFBF13611ADE00FE0808 /* TouchJSON */,
 				8E40AFBC13611AA600FE0808 /* Common */,
-				8E40AFBE13611ABA00FE0808 /* Controllers */,
 				8E40AFBD13611AB300FE0808 /* Models */,
+				8E40AFBE13611ABA00FE0808 /* Controllers */,
 				8E40AFA0136119F300FE0808 /* SifterAppDelegate.h */,
 				8E40AFA1136119F300FE0808 /* SifterAppDelegate.m */,
 				8E40AFA3136119F300FE0808 /* MainWindow.xib */,
@@ -151,6 +154,8 @@
 			children = (
 				8E40AFB313611A8800FE0808 /* Project.h */,
 				8E40AFB413611A8800FE0808 /* Project.m */,
+				8E7CCE9B1361C90F00937511 /* Milestone.h */,
+				8E7CCE9C1361C90F00937511 /* Milestone.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				8E40AFDF13611AEE00FE0808 /* CJSONDeserializer.m in Sources */,
 				8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */,
 				8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */,
+				8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
