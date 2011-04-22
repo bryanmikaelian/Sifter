@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "Project.h"
-
+#import "MilestoneViewController.h"
 
 @interface RootViewController : UITableViewController {
     NSMutableArray *projects;
+    MilestoneViewController *milestoneViewController;
 }
 
 @property (nonatomic, retain) NSMutableArray *projects;
+@property (nonatomic, retain) MilestoneViewController *milestoneViewController;
 
 @end

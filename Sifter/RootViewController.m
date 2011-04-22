@@ -8,10 +8,10 @@
 
 #import "RootViewController.h"
 
-
 @implementation RootViewController
 
 @synthesize projects;
+@synthesize milestoneViewController;
 
 - (void)dealloc {
     [projects release];
@@ -89,6 +89,12 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSString *milestoneURL = [[self.projects objectAtIndex:indexPath.row] valueForKey:@"api_milestones_url"];
+    self.milestoneViewController = [[MilestoneViewController alloc] initWithProjectURL:milestoneURL 
+                                                                               andStyle:UITableViewStyleGrouped];
+    
+	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:milestoneViewController animated:YES];
 }
 
 @end

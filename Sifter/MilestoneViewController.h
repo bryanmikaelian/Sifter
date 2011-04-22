@@ -15,4 +15,6 @@
 
 @property (nonatomic, retain) NSArray *milestones;
 
+- (id)initWithProjectURL:(NSString *)url andStyle:(UITableViewStyle)style;
+
 @end
