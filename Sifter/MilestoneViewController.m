@@ -43,6 +43,7 @@
 #pragma mark - View lifecycle
 
 - (void)viewDidLoad {
+    self.title = @"Project";
     [super viewDidLoad];
 }
 
@@ -67,6 +68,16 @@
         return [self.milestones count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section != 0) {
+        return @"Milestones";
+    }
+    else {
+        return nil;
+    }
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
@@ -75,8 +86,17 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = @"Cheese";
-    
+    // If there are milestones, put each cell's text as the milestone name.
+    if (indexPath.section == 1) {
+        cell.textLabel.text = [[self.milestones objectAtIndex:indexPath.row] valueForKey:@"name"];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    // Section 0 will always allow the user the select all the issues for a project.
+    else {
+        cell.textLabel.text = @"All issues";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+        
     return cell;
 }
 
