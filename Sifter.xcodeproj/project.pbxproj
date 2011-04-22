@@ -27,9 +27,6 @@
 		8E40AFDF13611AEE00FE0808 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD213611AEE00FE0808 /* CJSONDeserializer.m */; };
 		8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD413611AEE00FE0808 /* CJSONScanner.m */; };
 		8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */; };
-		8E40AFE813611BD500FE0808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF91136119F200FE0808 /* UIKit.framework */; };
-		8E40AFE913611BD500FE0808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF93136119F200FE0808 /* Foundation.framework */; };
-		8E40AFEA13611BD500FE0808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF95136119F200FE0808 /* CoreGraphics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,7 +68,6 @@
 		8E40AFD513611AEE00FE0808 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		8E40AFD713611AEE00FE0808 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
-		8E40AFE713611BD500FE0808 /* SifterTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SifterTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,16 +78,6 @@
 				8E40AF92136119F200FE0808 /* UIKit.framework in Frameworks */,
 				8E40AF94136119F200FE0808 /* Foundation.framework in Frameworks */,
 				8E40AF96136119F200FE0808 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E40AFE313611BD500FE0808 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E40AFE813611BD500FE0808 /* UIKit.framework in Frameworks */,
-				8E40AFE913611BD500FE0808 /* Foundation.framework in Frameworks */,
-				8E40AFEA13611BD500FE0808 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				8E40AF8D136119F200FE0808 /* Sifter.app */,
-				8E40AFE713611BD500FE0808 /* SifterTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,24 +236,6 @@
 			productReference = 8E40AF8D136119F200FE0808 /* Sifter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8E40AFE613611BD500FE0808 /* SifterTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E40AFF613611BD500FE0808 /* Build configuration list for PBXNativeTarget "SifterTest" */;
-			buildPhases = (
-				8E40AFE213611BD500FE0808 /* Sources */,
-				8E40AFE313611BD500FE0808 /* Frameworks */,
-				8E40AFE413611BD500FE0808 /* Resources */,
-				8E40AFE513611BD500FE0808 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SifterTest;
-			productName = SifterTest;
-			productReference = 8E40AFE713611BD500FE0808 /* SifterTest.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -287,7 +254,6 @@
 			projectRoot = "";
 			targets = (
 				8E40AF8C136119F200FE0808 /* Sifter */,
-				8E40AFE613611BD500FE0808 /* SifterTest */,
 			);
 		};
 /* End PBXProject section */
@@ -302,30 +268,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E40AFE413611BD500FE0808 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8E40AFE513611BD500FE0808 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E40AF89136119F200FE0808 /* Sources */ = {
@@ -347,13 +290,6 @@
 				8E40AFDF13611AEE00FE0808 /* CJSONDeserializer.m in Sources */,
 				8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */,
 				8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E40AFE213611BD500FE0808 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,46 +375,6 @@
 			};
 			name = Release;
 		};
-		8E40AFF713611BD500FE0808 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SifterTest/SifterTest-Prefix.pch";
-				INFOPLIST_FILE = "SifterTest/SifterTest-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		8E40AFF813611BD500FE0808 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SifterTest/SifterTest-Prefix.pch";
-				INFOPLIST_FILE = "SifterTest/SifterTest-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -496,15 +392,6 @@
 			buildConfigurations = (
 				8E40AFA9136119F300FE0808 /* Debug */,
 				8E40AFAA136119F300FE0808 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8E40AFF613611BD500FE0808 /* Build configuration list for PBXNativeTarget "SifterTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E40AFF713611BD500FE0808 /* Debug */,
-				8E40AFF813611BD500FE0808 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
