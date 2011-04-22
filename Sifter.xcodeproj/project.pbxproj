@@ -28,6 +28,7 @@
 		8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD413611AEE00FE0808 /* CJSONScanner.m */; };
 		8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */; };
 		8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCE9C1361C90F00937511 /* Milestone.m */; };
+		8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +72,8 @@
 		8E40AFD713611AEE00FE0808 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
 		8E7CCE9B1361C90F00937511 /* Milestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Milestone.h; sourceTree = "<group>"; };
 		8E7CCE9C1361C90F00937511 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Milestone.m; sourceTree = "<group>"; };
+		8E7CCEAE1361CC9F00937511 /* MilestoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilestoneViewController.h; sourceTree = "<group>"; };
+		8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilestoneViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,8 @@
 			children = (
 				8E40AFB613611A9400FE0808 /* RootViewController.h */,
 				8E40AFB713611A9400FE0808 /* RootViewController.m */,
+				8E7CCEAE1361CC9F00937511 /* MilestoneViewController.h */,
+				8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 				8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */,
 				8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */,
 				8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */,
+				8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
