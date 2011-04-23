@@ -26,13 +26,11 @@
     // Init the tableview with a given style
     self = [super initWithStyle:style];
     if (self) {
-        // Get all the miletones for a given project
+        // Get all the issues
         self.issues = [Issue getIssuesWithAGivenURL:url];
     }
     return self;
 }
-
-
 
 - (void)dealloc {
     [issues release];
