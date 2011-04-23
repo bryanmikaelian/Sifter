@@ -10,17 +10,17 @@
 
 @implementation Issue
 
-+ (NSMutableArray *) getMilestoneIssuesWithAGivenURL:(NSString *) url {
++ (NSMutableArray *) getIssuesWithAGivenURL:(NSString *) url {
     
-    // Make a request against Sifter's api for the issues for a given milestone.  We only want Open and Reopened issues, so append the query string s=1-2
-    NSData *sifterMilestoneIssuesJSON = [APIBase makeRequestAgainstSifterAPIWithURL:[url stringByAppendingString:@"&s=1-2"]];
-    NSDictionary *parsedMilestoneIssues = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterMilestoneIssuesJSON error:nil];
+    // Make a request against Sifter's api for the issues for a given url.  We only want Open and Reopened issues, so append the query string s=1-2
+    NSData *sifterIssuesJSON = [APIBase makeRequestAgainstSifterAPIWithURL:[url stringByAppendingString:@"&s=1-2"]];
+    NSDictionary *parsedIssues = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterIssuesJSON error:nil];
     
     // Store the issues
     NSMutableArray *issues = [[[NSMutableArray alloc] init] autorelease];    
     
     // Figure out how many pages we have
-    int numberOfPages = [[parsedMilestoneIssues valueForKey:@"total_pages"]integerValue];
+    int numberOfPages = [[parsedIssues valueForKey:@"total_pages"]integerValue];
     
     
     // If we have more than 1 page, get the issues for each page and add it to the array of issues
@@ -30,30 +30,30 @@
         NSString *nextPageURL = nil;
         
         // Add page one's issues to the array
-        [issues addObjectsFromArray:[[parsedMilestoneIssues valueForKey:@"issues"] allObjects]];
+        [issues addObjectsFromArray:[[parsedIssues valueForKey:@"issues"] allObjects]];
         
         // Store the URL for the next page
-        nextPageURL = [parsedMilestoneIssues valueForKey:@"next_page_url"];
+        nextPageURL = [parsedIssues valueForKey:@"next_page_url"];
         
         // Repeat for each page
         for (int x = 1; x <= numberOfPages; x++) {
             // Make the request
-            sifterMilestoneIssuesJSON = [APIBase makeRequestAgainstSifterAPIWithURL:nextPageURL];
+            sifterIssuesJSON = [APIBase makeRequestAgainstSifterAPIWithURL:nextPageURL];
             
             // Parse the issues
-            parsedMilestoneIssues = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterMilestoneIssuesJSON error:nil];
+            parsedIssues = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterIssuesJSON error:nil];
             
             // Add the issues to the array
-            [issues addObjectsFromArray:[[parsedMilestoneIssues valueForKey:@"issues"] allObjects]];
+            [issues addObjectsFromArray:[[parsedIssues valueForKey:@"issues"] allObjects]];
             
             // Store the URL for the next page
-            nextPageURL = [parsedMilestoneIssues valueForKey:@"next_page_url"];
+            nextPageURL = [parsedIssues valueForKey:@"next_page_url"];
         }
     }
     
     // We just have one page
     else {
-        [issues addObjectsFromArray:[[parsedMilestoneIssues valueForKey:@"issues"] allObjects]];
+        [issues addObjectsFromArray:[[parsedIssues valueForKey:@"issues"] allObjects]];
     }
     
     // Return the issues

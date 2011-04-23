@@ -27,7 +27,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Get all the miletones for a given project
-        self.issues = [Issue getMilestoneIssuesWithAGivenURL:url];
+        self.issues = [Issue getIssuesWithAGivenURL:url];
     }
     return self;
 }
