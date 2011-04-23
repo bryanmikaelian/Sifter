@@ -17,7 +17,7 @@
     NSDictionary *parsedMilestoneIssues = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterMilestoneIssuesJSON error:nil];
     
     // Store the issues
-    NSMutableArray *issues = nil;    
+    NSMutableArray *issues = [[[NSMutableArray alloc] init] autorelease];    
     
     // Figure out how many pages we have
     int numberOfPages = [[parsedMilestoneIssues valueForKey:@"total_pages"]integerValue];

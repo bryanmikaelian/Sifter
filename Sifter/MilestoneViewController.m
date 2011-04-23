@@ -12,6 +12,7 @@
 @implementation MilestoneViewController
 
 @synthesize milestones;
+@synthesize issueViewController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -103,6 +104,15 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // If we select a milestone cell, get the URL, init the new View Controller and push it
+    if (indexPath.section == 1) {
+        NSString *milestoneIssueURL = [[self.milestones objectAtIndex:indexPath.row] valueForKey:@"api_issues_url"];
+        self.issueViewController = [[IssueViewController alloc] initWithMilestoneIssueURL:milestoneIssueURL 
+                                                                                  andStyle:UITableViewStylePlain];
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self.navigationController pushViewController:issueViewController animated:YES];
+    }
 }
 
 @end
