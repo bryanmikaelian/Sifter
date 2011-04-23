@@ -10,10 +10,12 @@
 #import "IssueViewController.h"
 
 @interface MilestoneViewController : UITableViewController {
+    NSString *selectedURL;
     NSArray *milestones;
     IssueViewController *issueViewController;
 }
 
+@property (nonatomic, retain) NSString *selectedURL;
 @property (nonatomic, retain) NSArray *milestones;
 @property (nonatomic, retain) IssueViewController *issueViewController;
 

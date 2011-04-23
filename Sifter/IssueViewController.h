@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) NSArray *issues;
 
-- (id)initWithMilestoneIssueURL:(NSString *)url andStyle:(UITableViewStyle)style;
+- (id)initWithIssueURL:(NSString *)url andStyle:(UITableViewStyle)style;
 
 @end

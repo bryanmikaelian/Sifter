@@ -12,8 +12,20 @@
 
 + (NSMutableArray *) getIssuesWithAGivenURL:(NSString *) url {
     
-    // Make a request against Sifter's api for the issues for a given url.  We only want Open and Reopened issues, so append the query string s=1-2
-    NSData *sifterIssuesJSON = [APIBase makeRequestAgainstSifterAPIWithURL:[url stringByAppendingString:@"&s=1-2"]];
+    // Make a request against Sifter's api for the issues for a given url.  We only want Open and Reopened issues, so append the query string s=1-2.  Appending is based on if a request for all the project
+    // issues was made or just the issues for a given milestone.
+    
+    // Store the issues in .json format
+    NSData *sifterIssuesJSON = nil;
+    
+    if ([url rangeOfString:@"?m="].location == NSNotFound) {
+        // Milestones are not present in the URL request
+        sifterIssuesJSON = [APIBase makeRequestAgainstSifterAPIWithURL:[url stringByAppendingString:@"?s=1-2"]];
+    }
+    else {
+        sifterIssuesJSON = [APIBase makeRequestAgainstSifterAPIWithURL:[url stringByAppendingString:@"&s=1-2"]];        
+    }
+
     NSDictionary *parsedIssues = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterIssuesJSON error:nil];
     
     // Store the issues

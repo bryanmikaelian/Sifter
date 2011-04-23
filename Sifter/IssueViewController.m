@@ -22,7 +22,7 @@
     return self;
 }
 
-- (id)initWithMilestoneIssueURL:(NSString *)url andStyle:(UITableViewStyle)style {
+- (id)initWithIssueURL:(NSString *)url andStyle:(UITableViewStyle)style {
     // Init the tableview with a given style
     self = [super initWithStyle:style];
     if (self) {

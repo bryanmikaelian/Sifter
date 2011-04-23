@@ -11,6 +11,7 @@
 
 @implementation MilestoneViewController
 
+@synthesize selectedURL;
 @synthesize milestones;
 @synthesize issueViewController;
 
@@ -27,8 +28,10 @@
     // Init the tableview with a given style
     self = [super initWithStyle:style];
     if (self) {
+        // Set the URL
+        self.selectedURL = url;
         // Get all the miletones for a given project
-        self.milestones = [Milestone getProjectMilestonesWithGivenProjectURL:url];
+        self.milestones = [Milestone getProjectMilestonesWithGivenProjectURL:self.selectedURL];
     }
     return self;
 }
@@ -37,6 +40,8 @@
 
 - (void)dealloc {
     [milestones release];
+    [issueViewController release];
+    [selectedURL release];
     [super dealloc];
 }
 
@@ -107,8 +112,18 @@
     // If we select a milestone cell, get the URL, init the new View Controller and push it
     if (indexPath.section == 1) {
         NSString *milestoneIssueURL = [[self.milestones objectAtIndex:indexPath.row] valueForKey:@"api_issues_url"];
-        self.issueViewController = [[IssueViewController alloc] initWithMilestoneIssueURL:milestoneIssueURL 
+        self.issueViewController = [[IssueViewController alloc] initWithIssueURL:milestoneIssueURL 
                                                                                   andStyle:UITableViewStylePlain];
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [self.navigationController pushViewController:issueViewController animated:YES];
+    }
+    
+    else {
+        // Replace the milestones resource with just issues since we are just getting all the issues for the project.
+        NSString *projectIssuesURL = [self.selectedURL stringByReplacingOccurrencesOfString:@"/milestones" withString:@"/issues"];
+        self.issueViewController = [[IssueViewController alloc] initWithIssueURL:projectIssuesURL 
+                                                                                 andStyle:UITableViewStylePlain];
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
         [self.navigationController pushViewController:issueViewController animated:YES];

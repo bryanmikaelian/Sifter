@@ -16,6 +16,4 @@
 
 + (NSMutableArray *) getIssuesWithAGivenURL:(NSString *) url;
 
-+ (NSMutableArray *) getProjectIssues:(NSString *) url;
-
 @end
