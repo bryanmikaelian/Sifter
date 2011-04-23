@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E16295C13636131005BC306 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E16295B13636131005BC306 /* Issue.m */; };
 		8E40AF92136119F200FE0808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF91136119F200FE0808 /* UIKit.framework */; };
 		8E40AF94136119F200FE0808 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF93136119F200FE0808 /* Foundation.framework */; };
 		8E40AF96136119F200FE0808 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF95136119F200FE0808 /* CoreGraphics.framework */; };
@@ -32,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E16295A13636131005BC306 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Issue.h; sourceTree = "<group>"; };
+		8E16295B13636131005BC306 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
 		8E40AF8D136119F200FE0808 /* Sifter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sifter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E40AF91136119F200FE0808 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8E40AF93136119F200FE0808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -159,6 +162,8 @@
 				8E40AFB413611A8800FE0808 /* Project.m */,
 				8E7CCE9B1361C90F00937511 /* Milestone.h */,
 				8E7CCE9C1361C90F00937511 /* Milestone.m */,
+				8E16295A13636131005BC306 /* Issue.h */,
+				8E16295B13636131005BC306 /* Issue.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 				8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */,
 				8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */,
 				8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */,
+				8E16295C13636131005BC306 /* Issue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
