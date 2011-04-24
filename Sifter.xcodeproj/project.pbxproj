@@ -29,6 +29,7 @@
 		8E40AFDF13611AEE00FE0808 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD213611AEE00FE0808 /* CJSONDeserializer.m */; };
 		8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD413611AEE00FE0808 /* CJSONScanner.m */; };
 		8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */; };
+		8E44EBE0136465D000653D72 /* folder_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E44EBDF136465D000653D72 /* folder_64.png */; };
 		8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCE9C1361C90F00937511 /* Milestone.m */; };
 		8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */; };
 /* End PBXBuildFile section */
@@ -76,6 +77,7 @@
 		8E40AFD513611AEE00FE0808 /* CJSONSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CJSONSerializer.h; sourceTree = "<group>"; };
 		8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		8E40AFD713611AEE00FE0808 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
+		8E44EBDF136465D000653D72 /* folder_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_64.png; sourceTree = "<group>"; };
 		8E7CCE9B1361C90F00937511 /* Milestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Milestone.h; sourceTree = "<group>"; };
 		8E7CCE9C1361C90F00937511 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Milestone.m; sourceTree = "<group>"; };
 		8E7CCEAE1361CC9F00937511 /* MilestoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilestoneViewController.h; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				8E40AFA0136119F300FE0808 /* SifterAppDelegate.h */,
 				8E40AFA1136119F300FE0808 /* SifterAppDelegate.m */,
 				8E40AFA3136119F300FE0808 /* MainWindow.xib */,
+				8E44EBE21364663600653D72 /* Images */,
 				8E40AF98136119F300FE0808 /* Supporting Files */,
 			);
 			path = Sifter;
@@ -236,6 +239,14 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		8E44EBE21364663600653D72 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8E44EBDF136465D000653D72 /* folder_64.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -285,6 +296,7 @@
 			files = (
 				8E40AF9C136119F300FE0808 /* InfoPlist.strings in Resources */,
 				8E40AFA5136119F300FE0808 /* MainWindow.xib in Resources */,
+				8E44EBE0136465D000653D72 /* folder_64.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
