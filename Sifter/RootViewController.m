@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     
     // Set the title
-    self.title = @"Projects";
+    self.navigationController.navigationBar.topItem.title = @"Projects";
     
     // Table View
     self.tableView.opaque = YES;

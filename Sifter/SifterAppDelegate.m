@@ -16,6 +16,7 @@
 @synthesize navigationController;
 @synthesize rootViewController;
 @synthesize tabBarController;
+@synthesize searchViewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -40,9 +41,19 @@
     [anImage release];
     self.navigationController.tabBarItem = anItem;
     [anItem release];
+    
+    // Set up the search view controller
+    UIViewController *aViewController = [[UIViewController alloc] init];
+    self.searchViewController = aViewController;
+    [aViewController release];
+    
+    // Set up a tab bar item for the view controller
+    UITabBarItem *aSystenItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:1];
+    self.searchViewController.tabBarItem = aSystenItem;
+    [aSystenItem release];
 
     // Add the views to the tab bar controller
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.searchViewController, nil];
     
     // Add the tab bar controller's view to the window.
     [self.window addSubview:[self.tabBarController view]];
@@ -96,6 +107,7 @@
     [navigationController release];
     [rootViewController release];
     [tabBarController release];
+    [searchViewController release];
     [super dealloc];
 }
 
