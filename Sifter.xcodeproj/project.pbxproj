@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1157C01365D4BB00C9FB49 /* case_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E1157BF1365D4BB00C9FB49 /* case_30.png */; };
 		8E16295C13636131005BC306 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E16295B13636131005BC306 /* Issue.m */; };
 		8E16296013636A7B005BC306 /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E16295F13636A7B005BC306 /* IssueViewController.m */; };
 		8E40AF92136119F200FE0808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF91136119F200FE0808 /* UIKit.framework */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E1157BF1365D4BB00C9FB49 /* case_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = case_30.png; sourceTree = "<group>"; };
 		8E16295A13636131005BC306 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Issue.h; sourceTree = "<group>"; };
 		8E16295B13636131005BC306 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
 		8E16295E13636A7B005BC306 /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		8E44EBE21364663600653D72 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8E1157BF1365D4BB00C9FB49 /* case_30.png */,
 				8E44EBDF136465D000653D72 /* folder_64.png */,
 			);
 			name = Images;
@@ -297,6 +300,7 @@
 				8E40AF9C136119F300FE0808 /* InfoPlist.strings in Resources */,
 				8E40AFA5136119F300FE0808 /* MainWindow.xib in Resources */,
 				8E44EBE0136465D000653D72 /* folder_64.png in Resources */,
+				8E1157C01365D4BB00C9FB49 /* case_30.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
