@@ -15,21 +15,37 @@
 @synthesize window=_window;
 @synthesize navigationController;
 @synthesize rootViewController;
+@synthesize tabBarController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Set up the root view controller
+    // Set up the tab bar controller
+    UITabBarController *aTabBarController = [[UITabBarController alloc] init];
+    self.tabBarController = aTabBarController;
+    [aTabBarController release];
+        
+    // Set up the RootViewController
     RootViewController *aRootViewController = [[RootViewController alloc] initWithStyle:UITableViewStyleGrouped];
     self.rootViewController = aRootViewController;
     [aRootViewController release];
-    
+        
     // Set up the navigation controller with its root controller.
     UINavigationController *aNavigationController = [[UINavigationController alloc] initWithRootViewController:aRootViewController];
     self.navigationController = aNavigationController;
     [aNavigationController release];
     
-    // Add the navigation controller's view to the window.
-    [self.window addSubview:[navigationController view]];
+    // Set up a tab bar item for the navigation controller
+    UIImage *anImage = [UIImage imageNamed:@"case_30.png"];
+    UITabBarItem *anItem = [[UITabBarItem alloc] initWithTitle:@"Project Issues" image:anImage tag:0];
+    [anImage release];
+    self.navigationController.tabBarItem = anItem;
+    [anItem release];
+
+    // Add the views to the tab bar controller
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, nil];
+    
+    // Add the tab bar controller's view to the window.
+    [self.window addSubview:[self.tabBarController view]];
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -77,6 +93,9 @@
 - (void)dealloc
 {
     [_window release];
+    [navigationController release];
+    [rootViewController release];
+    [tabBarController release];
     [super dealloc];
 }
 
