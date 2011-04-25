@@ -18,14 +18,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // Set up the root view controller
     RootViewController *aRootViewController = [[RootViewController alloc] initWithStyle:UITableViewStyleGrouped];
     self.rootViewController = aRootViewController;
     [aRootViewController release];
     
+    // Set up the navigation controller with its root controller.
     UINavigationController *aNavigationController = [[UINavigationController alloc] initWithRootViewController:aRootViewController];
     self.navigationController = aNavigationController;
     [aNavigationController release];
     
+    // Add the navigation controller's view to the window.
     [self.window addSubview:[navigationController view]];
     
     [self.window makeKeyAndVisible];
