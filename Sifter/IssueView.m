@@ -17,22 +17,34 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        // Initialization code
+        self.opaque = YES;
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
-- (void)dealloc
-{
+- (void)drawRect:(CGRect)rect {
+    
+    // Color and font for the issue subject and number
+    UIFont *issueInfoFont = [UIFont systemFontOfSize:18.0];
+    CGPoint point;
+    
+    
+    // Draw the subject
+    point = CGPointMake(10.0, 8.0);
+    [issueWrapper.issueSubject drawAtPoint:point forWidth:110.0 withFont:issueInfoFont 
+                               minFontSize:16.0 
+                               actualFontSize:NULL 
+                               lineBreakMode:UILineBreakModeTailTruncation 
+                               baselineAdjustment:UIBaselineAdjustmentAlignBaselines];
+    
+    
+}
+
+ 
+- (void)dealloc {
+    [issueWrapper release];
     [super dealloc];
 }
 
