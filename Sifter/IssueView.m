@@ -28,21 +28,26 @@
 #define LEFT_OFFSET 10
 #define CONTENT_WIDTH 275
 #define VERTICAL_OFFSET 6
-#define DESCRIPTION_OFFSET 24
+    
+#define ISSUE_SUBJECT_FONT_SIZE 14
+#define ISSUE_DESCRIPTION_FONT_SIZE 12
+    
+#define MAX_OFFSET_ISSUE_SUBJECT 64 // = (Max Number of Lines for Issue Info * issueInfoFontSize) + VERTICAL_OFFSET * 2, specifically (3 * 14) + (6 * 2)
+
     
     // Points to draw at
     CGPoint subjectPoint, descriptionPoint;
     
     // Color and font for the issue subject and number
-    UIFont *issueInfoFont = [UIFont boldSystemFontOfSize:14.0];
-    UIColor *issueTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
+    UIFont *issueInfoFont = [UIFont boldSystemFontOfSize:ISSUE_SUBJECT_FONT_SIZE];
+    UIColor *issueInfoTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
     
     // Color and font for the issue description
-    UIFont *issueDescriptionFont = [UIFont systemFontOfSize:12.0];
+    UIFont *issueDescriptionFont = [UIFont systemFontOfSize:ISSUE_DESCRIPTION_FONT_SIZE];
     UIColor *issueDescriptionTextColor = [UIColor darkGrayColor];
     
     // Draw the subject
-    [issueTextColor set];
+    [issueInfoTextColor set];
     
     // Specify the point where we want to place the info
     subjectPoint = CGPointMake(LEFT_OFFSET, VERTICAL_OFFSET);
@@ -65,7 +70,7 @@
     descriptionPoint = CGPointMake(LEFT_OFFSET, requiredSize.height + VERTICAL_OFFSET);
     
     // Figure out how much space is left for the description.
-    CGSize remainingSize = CGSizeMake(CONTENT_WIDTH, requiredSize.height + DESCRIPTION_OFFSET);   
+    CGSize remainingSize = CGSizeMake(CONTENT_WIDTH, MAX_OFFSET_ISSUE_SUBJECT - requiredSize.height);   
     CGSize requiredSizeForDescription = [issueWrapper.issueDescription sizeWithFont:issueDescriptionFont constrainedToSize:remainingSize lineBreakMode:UILineBreakModeTailTruncation];
     
     // Draw the rectangle to hold the text for the description.  This rectangle's height will be the height of the left over space. 
