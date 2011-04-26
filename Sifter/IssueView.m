@@ -30,14 +30,19 @@
 #define VERTICAL_OFFSET 6
 #define DESCRIPTION_OFFSET 24
     
+    // Points to draw at
+    CGPoint subjectPoint, descriptionPoint;
+    
     // Color and font for the issue subject and number
     UIFont *issueInfoFont = [UIFont boldSystemFontOfSize:14.0];
-    CGPoint subjectPoint, descriptionPoint;
+    UIColor *issueTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
     
     // Color and font for the issue description
     UIFont *issueDescriptionFont = [UIFont systemFontOfSize:12.0];
+    UIColor *issueDescriptionTextColor = [UIColor darkGrayColor];
     
     // Draw the subject
+    [issueTextColor set];
     
     // Specify the point where we want to place the info
     subjectPoint = CGPointMake(LEFT_OFFSET, VERTICAL_OFFSET);
@@ -53,6 +58,7 @@
     [issueWrapper.issueSubject drawInRect:infoRectangle withFont:issueInfoFont lineBreakMode:UILineBreakModeWordWrap];
         
     // Draw the description
+    [issueDescriptionTextColor set];
     
     // Because the subject may take multiple lines, we can only allocate so much space for the description.  The point we will draw at will be right below the last line of the subject.
     // Create the drawing point for the rectangle that will hold the content. Add 6 pixels for buffer so the text isn't on top of each other.
