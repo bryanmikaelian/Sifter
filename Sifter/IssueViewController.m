@@ -8,10 +8,11 @@
 
 #import "IssueViewController.h"
 #import "Issue.h"
+#import "IssueWrapper.h"
 
 @implementation IssueViewController
 
-@synthesize issues;
+@synthesize issueWrappers;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,14 +27,23 @@
     // Init the tableview with a given style
     self = [super initWithStyle:style];
     if (self) {
-        // Get all the issues
-        self.issues = [Issue getIssuesWithAGivenURL:url];
+        // Set up the issue wrapper
+        self.issueWrappers = [[NSMutableArray alloc] init];
+        
+        // Get all the issues and store them in an array
+        NSMutableArray *issues = [Issue getIssuesWithAGivenURL:url];
+        
+        // Create an issue wrapper for each issue and add it to an array
+        for (id issue in issues) {
+            IssueWrapper *anIssueWrapper = [[[IssueWrapper alloc] initWithIssue:issue] autorelease];
+            [self.issueWrappers addObject:anIssueWrapper];
+        }
     }
     return self;
 }
 
 - (void)dealloc {
-    [issues release];
+    [issueWrappers release];
     [super dealloc];
 }
 
@@ -54,7 +64,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Number of rows is based on number of issues
-    return [self.issues count];
+    return [self.issueWrappers count];
 }
 
 #define ISSUE_SUBJECT_TAG 1
@@ -65,7 +75,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        cell.textLabel.text = [[self.issues objectAtIndex:indexPath.row] valueForKey:@"subject"];
+        cell.textLabel.text = [[self.issueWrappers objectAtIndex:indexPath.row] issueSubject];
         cell.tag = ISSUE_SUBJECT_TAG;
     }
     

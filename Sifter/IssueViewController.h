@@ -10,10 +10,10 @@
 
 
 @interface IssueViewController : UITableViewController {
-    NSArray *issues;
+    NSMutableArray *issueWrappers;
 }
 
-@property (nonatomic, retain) NSArray *issues;
+@property (nonatomic, retain) NSMutableArray *issueWrappers;
 
 - (id)initWithIssueURL:(NSString *)url andStyle:(UITableViewStyle)style;
 

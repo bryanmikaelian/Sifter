@@ -21,7 +21,7 @@
     NSArray *projects = [[parsedProjects valueForKey:@"projects"] allObjects];
     
     // Return the unarchived projects
-    NSMutableArray *unarchivedProjects = [[NSMutableArray alloc] init];
+    NSMutableArray *unarchivedProjects = [[[NSMutableArray alloc] init] autorelease];
     for (int i = 0; i < [projects count]; i++) {
         if(![[[projects objectAtIndex:i] valueForKey:@"archived"] boolValue])
             [unarchivedProjects addObject:[projects objectAtIndex:i]];
