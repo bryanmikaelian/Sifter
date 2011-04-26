@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E1157C01365D4BB00C9FB49 /* case_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E1157BF1365D4BB00C9FB49 /* case_30.png */; };
+		8E15BB141366EDA2002E561F /* IssueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E15BB131366EDA2002E561F /* IssueCell.m */; };
 		8E16295C13636131005BC306 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E16295B13636131005BC306 /* Issue.m */; };
 		8E16296013636A7B005BC306 /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E16295F13636A7B005BC306 /* IssueViewController.m */; };
 		8E40AF92136119F200FE0808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF91136119F200FE0808 /* UIKit.framework */; };
@@ -37,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		8E1157BF1365D4BB00C9FB49 /* case_30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = case_30.png; sourceTree = "<group>"; };
+		8E15BB121366EDA2002E561F /* IssueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueCell.h; sourceTree = "<group>"; };
+		8E15BB131366EDA2002E561F /* IssueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueCell.m; sourceTree = "<group>"; };
 		8E16295A13636131005BC306 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Issue.h; sourceTree = "<group>"; };
 		8E16295B13636131005BC306 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
 		8E16295E13636A7B005BC306 /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
@@ -100,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E15BB101366ED6D002E561F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8E15BB121366EDA2002E561F /* IssueCell.h */,
+				8E15BB131366EDA2002E561F /* IssueCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		8E40AF82136119F200FE0808 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +148,7 @@
 				8E40AFBE13611ABA00FE0808 /* Controllers */,
 				8E40AFA0136119F300FE0808 /* SifterAppDelegate.h */,
 				8E40AFA1136119F300FE0808 /* SifterAppDelegate.m */,
+				8E15BB101366ED6D002E561F /* Views */,
 				8E40AFA3136119F300FE0808 /* MainWindow.xib */,
 				8E44EBE21364663600653D72 /* Images */,
 				8E40AF98136119F300FE0808 /* Supporting Files */,
@@ -330,6 +343,7 @@
 				8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */,
 				8E16295C13636131005BC306 /* Issue.m in Sources */,
 				8E16296013636A7B005BC306 /* IssueViewController.m in Sources */,
+				8E15BB141366EDA2002E561F /* IssueCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
