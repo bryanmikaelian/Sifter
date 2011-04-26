@@ -27,17 +27,27 @@
 - (void)drawRect:(CGRect)rect {
     
     // Color and font for the issue subject and number
-    UIFont *issueInfoFont = [UIFont systemFontOfSize:18.0];
-    CGPoint point;
+    UIFont *issueInfoFont = [UIFont boldSystemFontOfSize:14.0];
+    CGPoint infoPoint, descriptionPoint;
     
+    // Color and font for the issue description
+    UIFont *issueDescription = [UIFont systemFontOfSize:12.0];
     
     // Draw the subject
-    point = CGPointMake(10.0, 8.0);
-    [issueWrapper.issueSubject drawAtPoint:point forWidth:110.0 withFont:issueInfoFont 
-                               minFontSize:16.0 
+    infoPoint = CGPointMake(10.0, 8.0);
+    [issueWrapper.issueSubject drawAtPoint:infoPoint forWidth:250.0 withFont:issueInfoFont 
+                               minFontSize:14.0 
                                actualFontSize:NULL 
-                               lineBreakMode:UILineBreakModeTailTruncation 
+                               lineBreakMode:UILineBreakModeWordWrap 
                                baselineAdjustment:UIBaselineAdjustmentAlignBaselines];
+    
+    // Draw the description
+    descriptionPoint = CGPointMake(10.0, 24.0);
+    [issueWrapper.issueDescription drawAtPoint:descriptionPoint forWidth:250.0 withFont:issueDescription 
+                                   minFontSize:14.0 
+                                   actualFontSize:NULL 
+                                   lineBreakMode:UILineBreakModeWordWrap 
+                                   baselineAdjustment:UIBaselineAdjustmentAlignBaselines];
     
     
 }

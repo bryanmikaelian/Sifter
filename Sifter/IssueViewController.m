@@ -11,6 +11,8 @@
 #import "IssueWrapper.h"
 #import "IssueCell.h"
 
+#define ROW_HEIGHT 75
+
 @implementation IssueViewController
 
 @synthesize issueWrappers;
@@ -76,7 +78,7 @@
     IssueCell *issueCell = (IssueCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (issueCell == nil) {
         issueCell = [[[IssueCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-        issueCell.frame = CGRectMake(0.0, 0.0, 320.0, 60);
+        issueCell.frame = CGRectMake(0.0, 0.0, 320.0, ROW_HEIGHT);
     }
     
     [issueCell setIssueWrapper:[self.issueWrappers objectAtIndex:indexPath.row]];
