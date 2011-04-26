@@ -9,6 +9,7 @@
 #import "IssueViewController.h"
 #import "Issue.h"
 #import "IssueWrapper.h"
+#import "IssueCell.h"
 
 @implementation IssueViewController
 
@@ -72,17 +73,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-        cell.textLabel.text = [[self.issueWrappers objectAtIndex:indexPath.row] issueSubject];
-        cell.tag = ISSUE_SUBJECT_TAG;
+    IssueCell *issueCell = (IssueCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (issueCell == nil) {
+        issueCell = [[[IssueCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        issueCell.frame = CGRectMake(0.0, 0.0, 320.0, 60);
     }
     
-    // Put each cell's text as the issue name.
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [issueCell setIssueWrapper:[self.issueWrappers objectAtIndex:indexPath.row]];
+    
+    issueCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-    return cell;
+    return issueCell;
 }
 
 #pragma mark - Table view delegate

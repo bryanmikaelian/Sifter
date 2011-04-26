@@ -38,7 +38,6 @@
     // Set up a tab bar item for the navigation controller
     UIImage *anImage = [UIImage imageNamed:@"case_30.png"];
     UITabBarItem *anItem = [[UITabBarItem alloc] initWithTitle:@"Project Issues" image:anImage tag:0];
-    [anItem release];
     self.navigationController.tabBarItem = anItem;
     [anItem release];
     
