@@ -57,6 +57,7 @@
     return [self.issues count];
 }
 
+#define ISSUE_SUBJECT_TAG 1
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
@@ -64,10 +65,11 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.textLabel.text = [[self.issues objectAtIndex:indexPath.row] valueForKey:@"subject"];
+        cell.tag = ISSUE_SUBJECT_TAG;
     }
     
     // Put each cell's text as the issue name.
-    cell.textLabel.text = [[self.issues objectAtIndex:indexPath.row] valueForKey:@"subject"];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
     return cell;
