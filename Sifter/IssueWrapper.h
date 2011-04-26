@@ -14,12 +14,14 @@
     NSString *issueSubject;
     NSString *issueDescription;
     NSString *issueURL;
+    NSString *issueStatus;
 }
 
 @property (nonatomic, retain) NSString *issueNumber;
 @property (nonatomic, retain) NSString *issueSubject;
 @property (nonatomic, retain) NSString *issueDescription;
 @property (nonatomic, retain) NSString *issueURL;
+@property (nonatomic, retain) NSString *issueStatus;
 
 - (IssueWrapper*) initWithIssue:(NSDictionary *)issue;
 

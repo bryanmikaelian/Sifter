@@ -15,6 +15,7 @@
 @synthesize issueNumber;
 @synthesize issueDescription;
 @synthesize issueURL;
+@synthesize issueStatus;
 
 - (IssueWrapper*)initWithIssue:(NSDictionary *)issue {
     if((self = [super init])) {
@@ -22,7 +23,9 @@
         self.issueSubject = [issue valueForKey:@"subject"];
         self.issueNumber = [[issue valueForKey:@"number"] stringValue];
         self.issueDescription = [issue valueForKey:@"description"];
-        self.issueURL = [issue valueForKey:@"url"];
+        self.issueURL = [issue valueForKey:@"api_url"];
+        self.issueStatus = [issue valueForKey:@"status"];
+        NSLog(@"Blah");
     }
     
     return self;
