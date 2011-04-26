@@ -10,6 +10,7 @@
 		8E1157C01365D4BB00C9FB49 /* case_30.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E1157BF1365D4BB00C9FB49 /* case_30.png */; };
 		8E15BB141366EDA2002E561F /* IssueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E15BB131366EDA2002E561F /* IssueCell.m */; };
 		8E15BB171366F23A002E561F /* IssueWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E15BB161366F23A002E561F /* IssueWrapper.m */; };
+		8E15BB52136710DD002E561F /* IssueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E15BB51136710DD002E561F /* IssueView.m */; };
 		8E16295C13636131005BC306 /* Issue.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E16295B13636131005BC306 /* Issue.m */; };
 		8E16296013636A7B005BC306 /* IssueViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E16295F13636A7B005BC306 /* IssueViewController.m */; };
 		8E40AF92136119F200FE0808 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF91136119F200FE0808 /* UIKit.framework */; };
@@ -43,6 +44,8 @@
 		8E15BB131366EDA2002E561F /* IssueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueCell.m; sourceTree = "<group>"; };
 		8E15BB151366F23A002E561F /* IssueWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueWrapper.h; sourceTree = "<group>"; };
 		8E15BB161366F23A002E561F /* IssueWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueWrapper.m; sourceTree = "<group>"; };
+		8E15BB50136710DD002E561F /* IssueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueView.h; sourceTree = "<group>"; };
+		8E15BB51136710DD002E561F /* IssueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueView.m; sourceTree = "<group>"; };
 		8E16295A13636131005BC306 /* Issue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Issue.h; sourceTree = "<group>"; };
 		8E16295B13636131005BC306 /* Issue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Issue.m; sourceTree = "<group>"; };
 		8E16295E13636A7B005BC306 /* IssueViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueViewController.h; sourceTree = "<group>"; };
@@ -109,10 +112,20 @@
 		8E15BB101366ED6D002E561F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8E15BB54136710E4002E561F /* Cells */,
+				8E15BB50136710DD002E561F /* IssueView.h */,
+				8E15BB51136710DD002E561F /* IssueView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8E15BB54136710E4002E561F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
 				8E15BB121366EDA2002E561F /* IssueCell.h */,
 				8E15BB131366EDA2002E561F /* IssueCell.m */,
 			);
-			name = Views;
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		8E40AF82136119F200FE0808 = {
@@ -350,6 +363,7 @@
 				8E16296013636A7B005BC306 /* IssueViewController.m in Sources */,
 				8E15BB141366EDA2002E561F /* IssueCell.m in Sources */,
 				8E15BB171366F23A002E561F /* IssueWrapper.m in Sources */,
+				8E15BB52136710DD002E561F /* IssueView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

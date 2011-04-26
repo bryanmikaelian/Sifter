@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "IssueWrapper.h"
+#import "IssueView.h"
 
 @interface IssueCell : UITableViewCell {
-    
+    IssueView *issueView;
 }
+
+- (void)setIssueWrapper:(IssueWrapper *)newIssueWrapper;
+
+@property (nonatomic, retain) IssueView *issueView;
 
 @end
