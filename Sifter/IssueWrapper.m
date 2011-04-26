@@ -25,7 +25,6 @@
         self.issueDescription = [issue valueForKey:@"description"];
         self.issueURL = [issue valueForKey:@"api_url"];
         self.issueStatus = [issue valueForKey:@"status"];
-        NSLog(@"Blah");
     }
     
     return self;
