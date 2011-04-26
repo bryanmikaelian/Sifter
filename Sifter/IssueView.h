@@ -11,8 +11,10 @@
 
 @interface IssueView : UIView {
     IssueWrapper *issueWrapper;
+    BOOL highlighted;
 }
 
 @property (nonatomic, retain) IssueWrapper *issueWrapper;
+@property (nonatomic, getter=isHighlighted) BOOL highlighted;
 
 @end

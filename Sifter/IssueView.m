@@ -11,7 +11,7 @@
 
 @implementation IssueView
 @synthesize issueWrapper;
-
+@synthesize highlighted;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -23,6 +23,12 @@
     return self;
 }
 
+- (void)setHighlighted:(BOOL)highlight {
+    if(highlighted != highlight) {
+        highlighted = highlight;
+        [self setNeedsDisplay];
+    }
+}
 
 - (void)drawRect:(CGRect)rect {
 #define LEFT_OFFSET 10
@@ -33,18 +39,29 @@
 #define ISSUE_DESCRIPTION_FONT_SIZE 12
     
 #define MAX_OFFSET_ISSUE_SUBJECT 64 // = (Max Number of Lines for Issue Info * issueInfoFontSize) + VERTICAL_OFFSET * 2, specifically (3 * 14) + (6 * 2)
-
     
     // Points to draw at
     CGPoint subjectPoint, descriptionPoint;
     
     // Color and font for the issue subject and number
     UIFont *issueInfoFont = [UIFont boldSystemFontOfSize:ISSUE_SUBJECT_FONT_SIZE];
-    UIColor *issueInfoTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
+    UIColor *issueInfoTextColor = nil;
     
     // Color and font for the issue description
     UIFont *issueDescriptionFont = [UIFont systemFontOfSize:ISSUE_DESCRIPTION_FONT_SIZE];
-    UIColor *issueDescriptionTextColor = [UIColor darkGrayColor];
+    UIColor *issueDescriptionTextColor = nil;
+    
+    
+    // Configure the colors for the cell
+    if (self.highlighted) {
+        issueInfoTextColor = [UIColor whiteColor];
+        issueDescriptionTextColor = [UIColor whiteColor];
+    }
+    else {
+        issueInfoTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
+        issueDescriptionTextColor = [UIColor darkGrayColor];
+        self.backgroundColor = [UIColor whiteColor];
+    }
     
     // Draw the subject
     [issueInfoTextColor set];
