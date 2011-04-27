@@ -30,9 +30,20 @@
     }
 }
 
+- (void)setIssueWrapper:(IssueWrapper *)newIssueWrapper {
+	
+	// Update the issue wrapper if it changes.  
+	if (issueWrapper != newIssueWrapper) {
+		[issueWrapper release];
+		issueWrapper = [newIssueWrapper retain];
+	}
+    
+	[self setNeedsDisplay];
+}
+
 - (void)drawRect:(CGRect)rect {
 #define LEFT_OFFSET 10
-#define CONTENT_WIDTH 275
+#define CONTENT_WIDTH 250
 #define VERTICAL_OFFSET 6
     
 #define ISSUE_SUBJECT_FONT_SIZE 14
@@ -73,11 +84,11 @@
     CGSize boundingSize = CGSizeMake(CONTENT_WIDTH, CGFLOAT_MAX);  // Ideally we want all the space!
     
     // Set the size to be equal to the font, with the constaint set to the bounding size.  Issue subjects can never exceed 200 characters, so three lines would be used at most.
-    CGSize requiredSize = [issueWrapper.issueSubject sizeWithFont:issueInfoFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap];
+    CGSize requiredSize = [self.issueWrapper.issueSubject sizeWithFont:issueInfoFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap];
 
     // Create a rectangle to hold this text.  The height is equal to the required size.
     CGRect infoRectangle = CGRectMake(subjectPoint.x, subjectPoint.y, CONTENT_WIDTH, requiredSize.height);
-    [issueWrapper.issueSubject drawInRect:infoRectangle withFont:issueInfoFont lineBreakMode:UILineBreakModeWordWrap];
+    [self.issueWrapper.issueSubject drawInRect:infoRectangle withFont:issueInfoFont lineBreakMode:UILineBreakModeWordWrap];
         
     // Draw the description
     [issueDescriptionTextColor set];
@@ -88,11 +99,11 @@
     
     // Figure out how much space is left for the description.
     CGSize remainingSize = CGSizeMake(CONTENT_WIDTH, MAX_OFFSET_ISSUE_SUBJECT - requiredSize.height);   
-    CGSize requiredSizeForDescription = [issueWrapper.issueDescription sizeWithFont:issueDescriptionFont constrainedToSize:remainingSize lineBreakMode:UILineBreakModeTailTruncation];
+    CGSize requiredSizeForDescription = [self.issueWrapper.issueDescription sizeWithFont:issueDescriptionFont constrainedToSize:remainingSize lineBreakMode:UILineBreakModeTailTruncation];
     
     // Draw the rectangle to hold the text for the description.  This rectangle's height will be the height of the left over space. 
     CGRect descriptionRectangle = CGRectMake(descriptionPoint.x, descriptionPoint.y, CONTENT_WIDTH, requiredSizeForDescription.height);
-    [issueWrapper.issueDescription drawInRect:descriptionRectangle withFont:issueDescriptionFont lineBreakMode:UILineBreakModeTailTruncation];
+    [self.issueWrapper.issueDescription drawInRect:descriptionRectangle withFont:issueDescriptionFont lineBreakMode:UILineBreakModeTailTruncation];
     
 }
 

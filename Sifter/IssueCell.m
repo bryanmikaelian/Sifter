@@ -26,15 +26,9 @@
     return self;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 - (void)setIssueWrapper:(IssueWrapper *)newIssueWrapper {
     // Assign the wrapper to the view
-    issueView.issueWrapper = newIssueWrapper;
+    self.issueView.issueWrapper = newIssueWrapper;
 }
 
 

@@ -73,7 +73,7 @@
 #define ISSUE_SUBJECT_TAG 1
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"IssueCell";
     
     IssueCell *issueCell = (IssueCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (issueCell == nil) {
@@ -82,9 +82,8 @@
     }
     
     [issueCell setIssueWrapper:[self.issueWrappers objectAtIndex:indexPath.row]];
-    
     issueCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        
+    
     return issueCell;
 }
 
