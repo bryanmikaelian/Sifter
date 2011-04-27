@@ -42,17 +42,19 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-#define LEFT_OFFSET 10
-#define CONTENT_WIDTH 250
+#define LEFT_OFFSET 60
+#define CONTENT_WIDTH 240
 #define VERTICAL_OFFSET 6
     
 #define ISSUE_SUBJECT_FONT_SIZE 14
 #define ISSUE_DESCRIPTION_FONT_SIZE 12
     
+#define ISSUE_NUMBER_FONT_SIZE 14
+    
 #define MAX_OFFSET_ISSUE_SUBJECT 64 // = (Max Number of Lines for Issue Info * issueInfoFontSize) + VERTICAL_OFFSET * 2, specifically (3 * 14) + (6 * 2)
     
     // Points to draw at
-    CGPoint subjectPoint, descriptionPoint;
+    CGPoint subjectPoint, descriptionPoint, issuePoint;
     
     // Color and font for the issue subject and number
     UIFont *issueInfoFont = [UIFont boldSystemFontOfSize:ISSUE_SUBJECT_FONT_SIZE];
@@ -62,15 +64,21 @@
     UIFont *issueDescriptionFont = [UIFont systemFontOfSize:ISSUE_DESCRIPTION_FONT_SIZE];
     UIColor *issueDescriptionTextColor = nil;
     
+    // Color and font for the issue number
+    UIFont *issueNumberFont = [UIFont boldSystemFontOfSize:ISSUE_NUMBER_FONT_SIZE];
+    UIColor *issueNumberTextColor = nil;
+    
     
     // Configure the colors for the cell
     if (self.highlighted) {
         issueInfoTextColor = [UIColor whiteColor];
         issueDescriptionTextColor = [UIColor whiteColor];
+        issueNumberTextColor = [UIColor whiteColor];
     }
     else {
         issueInfoTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
         issueDescriptionTextColor = [UIColor darkGrayColor];
+        issueNumberTextColor = [UIColor blackColor];
         self.backgroundColor = [UIColor whiteColor];
     }
     
@@ -104,6 +112,17 @@
     // Draw the rectangle to hold the text for the description.  This rectangle's height will be the height of the left over space. 
     CGRect descriptionRectangle = CGRectMake(descriptionPoint.x, descriptionPoint.y, CONTENT_WIDTH, requiredSizeForDescription.height);
     [self.issueWrapper.issueDescription drawInRect:descriptionRectangle withFont:issueDescriptionFont lineBreakMode:UILineBreakModeTailTruncation];
+    
+    // Draw the number
+    [issueNumberTextColor set];
+    issuePoint = CGPointMake(10, 25);
+    
+    // Append an octothorpe to the front
+    NSString *fancyIssueNumber = [@"#" stringByAppendingString:self.issueWrapper.issueNumber];
+    
+    [fancyIssueNumber drawAtPoint:issuePoint withFont:issueNumberFont];
+    
+    
     
 }
 
