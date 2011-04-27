@@ -10,8 +10,10 @@
 #import "IssueWrapper.h"
 
 @interface IssueDetailViewController : UITableViewController {
-    
+    IssueWrapper *issueWrapper;
 }
+
+@property (nonatomic, retain) IssueWrapper *issueWrapper;
 
 - (id)initWithIssue:(IssueWrapper *)issue andStyle:(UITableViewStyle)style;
 

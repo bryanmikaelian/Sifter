@@ -10,16 +10,18 @@
 
 @implementation IssueDetailViewController
 
+@synthesize issueWrapper;
 
 - (id)initWithIssue:(IssueWrapper *)issue andStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
-        // Custom initialization
+        self.issueWrapper = issue;
     }
     return self;
 }
 
 - (void)dealloc {
+    [issueWrapper release];
     [super dealloc];
 }
 
@@ -46,12 +48,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
