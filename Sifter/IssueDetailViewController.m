@@ -9,7 +9,7 @@
 #import "IssueDetailViewController.h"
 #import "DetailCell.h"
 
-#define ROW_HEIGHT 300
+#define ROW_HEIGHT 450
 
 @implementation IssueDetailViewController
 
@@ -66,6 +66,7 @@
     if (detailCell == nil) {
         detailCell = [[[DetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier issue:self.issueWrapper] autorelease];
         detailCell.frame = CGRectMake(0.0, 0.0, 320.0, ROW_HEIGHT);
+        detailCell.userInteractionEnabled = NO;
     }
     
     return detailCell;
