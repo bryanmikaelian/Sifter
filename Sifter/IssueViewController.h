@@ -7,13 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "IssueDetailViewController.h"
 
 @interface IssueViewController : UITableViewController {
     NSMutableArray *issueWrappers;
+    IssueDetailViewController *issueDetailViewController;
 }
 
 @property (nonatomic, retain) NSMutableArray *issueWrappers;
+@property (nonatomic, retain) IssueDetailViewController *issueDetailViewController;
 
 - (id)initWithIssueURL:(NSString *)url andStyle:(UITableViewStyle)style;
 

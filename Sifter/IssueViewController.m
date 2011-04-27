@@ -16,6 +16,7 @@
 @implementation IssueViewController
 
 @synthesize issueWrappers;
+@synthesize issueDetailViewController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -47,6 +48,7 @@
 
 - (void)dealloc {
     [issueWrappers release];
+    [issueDetailViewController release];
     [super dealloc];
 }
 
@@ -90,6 +92,10 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.issueDetailViewController = [[IssueDetailViewController alloc] initWithIssue:[self.issueWrappers objectAtIndex:indexPath.row] andStyle:UITableViewStyleGrouped];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self.navigationController pushViewController:issueDetailViewController animated:YES];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

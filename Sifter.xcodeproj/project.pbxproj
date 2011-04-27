@@ -34,6 +34,7 @@
 		8E40AFE013611AEE00FE0808 /* CJSONScanner.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD413611AEE00FE0808 /* CJSONScanner.m */; };
 		8E40AFE113611AEE00FE0808 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */; };
 		8E44EBE0136465D000653D72 /* folder_64.png in Resources */ = {isa = PBXBuildFile; fileRef = 8E44EBDF136465D000653D72 /* folder_64.png */; };
+		8E6442D21368612800E3A923 /* IssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6442D11368612800E3A923 /* IssueDetailViewController.m */; };
 		8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCE9C1361C90F00937511 /* Milestone.m */; };
 		8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,8 @@
 		8E40AFD613611AEE00FE0808 /* CJSONSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CJSONSerializer.m; sourceTree = "<group>"; };
 		8E40AFD713611AEE00FE0808 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
 		8E44EBDF136465D000653D72 /* folder_64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_64.png; sourceTree = "<group>"; };
+		8E6442D01368612700E3A923 /* IssueDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IssueDetailViewController.h; sourceTree = "<group>"; };
+		8E6442D11368612800E3A923 /* IssueDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IssueDetailViewController.m; sourceTree = "<group>"; };
 		8E7CCE9B1361C90F00937511 /* Milestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Milestone.h; sourceTree = "<group>"; };
 		8E7CCE9C1361C90F00937511 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Milestone.m; sourceTree = "<group>"; };
 		8E7CCEAE1361CC9F00937511 /* MilestoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilestoneViewController.h; sourceTree = "<group>"; };
@@ -216,6 +219,8 @@
 				8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */,
 				8E16295E13636A7B005BC306 /* IssueViewController.h */,
 				8E16295F13636A7B005BC306 /* IssueViewController.m */,
+				8E6442D01368612700E3A923 /* IssueDetailViewController.h */,
+				8E6442D11368612800E3A923 /* IssueDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				8E15BB141366EDA2002E561F /* IssueCell.m in Sources */,
 				8E15BB171366F23A002E561F /* IssueWrapper.m in Sources */,
 				8E15BB52136710DD002E561F /* IssueView.m in Sources */,
+				8E6442D21368612800E3A923 /* IssueDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
