@@ -50,6 +50,8 @@
 #define ISSUE_DESCRIPTION_FONT_SIZE 12
     
 #define ISSUE_NUMBER_FONT_SIZE 14
+#define ISSUE_NUMBER_HORIZONTAL_OFFSET 10
+#define ISSUE_NUMBER_VERTICAL_OFFSET 25
     
 #define MAX_OFFSET_ISSUE_SUBJECT 64 // = (Max Number of Lines for Issue Info * issueInfoFontSize) + VERTICAL_OFFSET * 2, specifically (3 * 14) + (6 * 2)
     
@@ -115,7 +117,7 @@
     
     // Draw the number
     [issueNumberTextColor set];
-    issuePoint = CGPointMake(10, 25);
+    issuePoint = CGPointMake(ISSUE_NUMBER_HORIZONTAL_OFFSET, ISSUE_NUMBER_VERTICAL_OFFSET);
     
     // Append an octothorpe to the front
     NSString *fancyIssueNumber = [@"#" stringByAppendingString:self.issueWrapper.issueNumber];
