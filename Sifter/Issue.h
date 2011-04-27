@@ -16,4 +16,6 @@
 
 + (NSMutableArray *) getIssuesWithAGivenURL:(NSString *) url;
 
++ (NSMutableArray *) getIssueCommentsWithAGivenURL:(NSString *)url;
+
 @end

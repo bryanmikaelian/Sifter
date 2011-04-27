@@ -7,7 +7,7 @@
 //
 
 #import "IssueWrapper.h"
-
+#import "Issue.h"
 
 @implementation IssueWrapper
 
@@ -16,6 +16,7 @@
 @synthesize issueDescription;
 @synthesize issueURL;
 @synthesize issueStatus;
+@synthesize issueComments;
 
 - (IssueWrapper*)initWithIssue:(NSDictionary *)issue {
     if((self = [super init])) {
@@ -25,6 +26,9 @@
         self.issueDescription = [issue valueForKey:@"description"];
         self.issueURL = [issue valueForKey:@"api_url"];
         self.issueStatus = [issue valueForKey:@"status"];
+        
+        // Get the comments for the issue
+        self.issueComments = [Issue getIssueCommentsWithAGivenURL:self.issueURL];
     }
     
     return self;
@@ -35,6 +39,7 @@
     [issueNumber release];
     [issueDescription release];
     [issueURL release];
+    [issueComments release];
     [super dealloc];
 }
 

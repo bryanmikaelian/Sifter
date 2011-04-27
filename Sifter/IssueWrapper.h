@@ -15,6 +15,7 @@
     NSString *issueDescription;
     NSString *issueURL;
     NSString *issueStatus;
+    NSArray *issueComments;
 }
 
 @property (nonatomic, retain) NSString *issueNumber;
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) NSString *issueDescription;
 @property (nonatomic, retain) NSString *issueURL;
 @property (nonatomic, retain) NSString *issueStatus;
+@property (nonatomic, retain) NSArray *issueComments;
 
 - (IssueWrapper*) initWithIssue:(NSDictionary *)issue;
 

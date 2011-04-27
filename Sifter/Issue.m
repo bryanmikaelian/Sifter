@@ -73,4 +73,19 @@
     
 }
 
++ (NSMutableArray *) getIssueCommentsWithAGivenURL:(NSString *)url {
+    // Store the issue comments
+    NSData *sifterIssueCommentsJSON = nil;
+    
+    sifterIssueCommentsJSON = [APIBase makeRequestAgainstSifterAPIWithURL:url];
+    NSDictionary *parsedIssueComments = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterIssueCommentsJSON error:nil];
+    
+    // Store the issue comments
+    NSMutableArray *issueComments = [[[NSMutableArray alloc] init] autorelease]; 
+    
+    [issueComments addObjectsFromArray:[[[parsedIssueComments valueForKey:@"issue"] valueForKey:@"comments"] allObjects]];
+    
+    return issueComments;
+}
+
 @end
