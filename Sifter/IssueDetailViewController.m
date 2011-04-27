@@ -7,6 +7,9 @@
 //
 
 #import "IssueDetailViewController.h"
+#import "DetailCell.h"
+
+#define ROW_HEIGHT 300
 
 @implementation IssueDetailViewController
 
@@ -59,14 +62,17 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"DetailCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    DetailCell *detailCell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (detailCell == nil) {
+        detailCell = [[[DetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier issue:self.issueWrapper] autorelease];
+        detailCell.frame = CGRectMake(0.0, 0.0, 320.0, ROW_HEIGHT);
     }
     
-    return cell;
+    return detailCell;
 }
 
 #pragma mark - Table view delegate
-
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return ROW_HEIGHT;
+}
 @end
