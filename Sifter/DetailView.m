@@ -68,12 +68,15 @@
     [issueCategoryTextColor set];
     categoryPoint = CGPointMake(5.0, requiredSize.height);
     
-    // Draw the rectangle to hold the text for the category.  This will be right below the last line of the subject. 
-    CGRect categoryRectangle = CGRectMake(categoryPoint.x, categoryPoint.y, CONTENT_WIDTH, ISSUE_CATEGORY_FONT_SIZE);
-    
+
     // Modified text for the category
     NSString *fancyCategoryText = [@"Category: " stringByAppendingString:self.issueWrapper.issueCategory];
     
+    // How much horizontal space do we need?
+    CGSize requiredSizeCategory = [fancyCategoryText sizeWithFont:issueCategoryFont];
+    
+    // Draw the rectangle to hold the text for the category.  This will be right below the last line of the subject.
+    CGRect categoryRectangle = CGRectMake(categoryPoint.x, categoryPoint.y, requiredSizeCategory.width, ISSUE_CATEGORY_FONT_SIZE);
     [fancyCategoryText drawInRect:categoryRectangle withFont:issueCategoryFont lineBreakMode:UILineBreakModeTailTruncation];
     
     // Draw the description
