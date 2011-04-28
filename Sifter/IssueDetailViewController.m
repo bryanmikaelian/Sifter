@@ -9,7 +9,7 @@
 #import "IssueDetailViewController.h"
 #import "DetailCell.h"
 
-#define MAX_ROW_HEIGHT 1500
+#define MAX_ROW_HEIGHT 1000
 
 @implementation IssueDetailViewController
 
@@ -76,7 +76,10 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     CGSize subjectSize =  [self.issueWrapper.issueSubject sizeWithFont:[UIFont systemFontOfSize:20] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
     
+    CGSize categorySize = [self.issueWrapper.issueCategory sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
+    
     CGSize descriptionSize = [self.issueWrapper.issueDescription sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
-    return subjectSize.height + descriptionSize.height + 40;
+    
+    return subjectSize.height + descriptionSize.height + categorySize.height + 40;
 }
 @end
