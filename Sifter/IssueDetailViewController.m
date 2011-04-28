@@ -9,7 +9,7 @@
 #import "IssueDetailViewController.h"
 #import "DetailCell.h"
 
-#define MAX_ROW_HEIGHT 1000
+#define MAX_ROW_HEIGHT 500
 
 @implementation IssueDetailViewController
 
@@ -74,12 +74,17 @@
 
 #pragma mark - Table view delegate
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    CGSize subjectSize =  [self.issueWrapper.issueSubject sizeWithFont:[UIFont systemFontOfSize:20] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
+#define TOTAL_OFFSETS_USED 20
+    CGSize boundingSizeSubject = CGSizeMake(285, CGFLOAT_MAX);
     
-    CGSize categorySize = [self.issueWrapper.issueCategory sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize subjectSize =  [self.issueWrapper.issueSubject sizeWithFont:[UIFont systemFontOfSize:16.0] constrainedToSize:boundingSizeSubject lineBreakMode:UILineBreakModeWordWrap];
     
-    CGSize descriptionSize = [self.issueWrapper.issueDescription sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize categorySize = [self.issueWrapper.issueCategory sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(285.0, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
     
-    return subjectSize.height + descriptionSize.height + categorySize.height + 40;
+    CGSize descriptionSize = [self.issueWrapper.issueDescription sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(285.0, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
+    
+    //CGFloat totalOffsets = ((subjectSize.height / 16 * 5) + categorySize.height + 5));
+    
+    return subjectSize.height + categorySize.height  + descriptionSize.height + TOTAL_OFFSETS_USED;
 }
 @end
