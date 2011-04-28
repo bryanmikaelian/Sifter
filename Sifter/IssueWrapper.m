@@ -16,6 +16,7 @@
 @synthesize issueDescription;
 @synthesize issueURL;
 @synthesize issueStatus;
+@synthesize issueCategory;
 @synthesize issueComments;
 
 - (IssueWrapper*)initWithIssue:(NSDictionary *)issue {
@@ -26,6 +27,14 @@
         self.issueDescription = [issue valueForKey:@"description"];
         self.issueURL = [issue valueForKey:@"api_url"];
         self.issueStatus = [issue valueForKey:@"status"];
+        
+        // Set the category if it is not null.  If it is null, provide filler text
+        if (![[issue valueForKey:@"category_name"] isKindOfClass:[NSNull class]]) {
+            self.issueCategory = [issue valueForKey:@"category_name"];
+        }
+        else {
+            self.issueCategory = @"Uncategorized";
+        }
         
         // Get the comments for the issue
         self.issueComments = [Issue getIssueCommentsWithAGivenURL:self.issueURL];
