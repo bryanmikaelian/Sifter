@@ -41,7 +41,7 @@
     
     // Color and font for the issue description
     UIFont *issueDescriptionFont = [UIFont systemFontOfSize:ISSUE_DESCRIPTION_FONT_SIZE];
-    UIColor *issueDescriptionTextColor = [UIColor blackColor];
+    UIColor *issueDescriptionTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:0.9];
     
     // Color and font for the issue category
     UIFont *issueCategoryFont = [UIFont systemFontOfSize:ISSUE_CATEGORY_FONT_SIZE];

@@ -50,7 +50,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Only one section
+    // One section
     return 1;
 }
 
@@ -59,9 +59,13 @@
     return 1;
 }
 
+- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [@"Details For Issue #" stringByAppendingString:self.issueWrapper.issueNumber];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"DetailCell";
-    
+        
     DetailCell *detailCell = (DetailCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (detailCell == nil) {
         detailCell = [[[DetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier issue:self.issueWrapper] autorelease];
@@ -71,6 +75,7 @@
     
     return detailCell;
 }
+
 
 #pragma mark - Table view delegate
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -82,8 +87,6 @@
     CGSize categorySize = [self.issueWrapper.issueCategory sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(285.0, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
     
     CGSize descriptionSize = [self.issueWrapper.issueDescription sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(285.0, CGFLOAT_MAX) lineBreakMode:UILineBreakModeWordWrap];
-    
-    //CGFloat totalOffsets = ((subjectSize.height / 16 * 5) + categorySize.height + 5));
     
     return subjectSize.height + categorySize.height  + descriptionSize.height + TOTAL_OFFSETS_USED;
 }
