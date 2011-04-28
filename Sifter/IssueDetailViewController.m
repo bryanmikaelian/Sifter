@@ -77,6 +77,6 @@
     CGSize subjectSize =  [self.issueWrapper.issueSubject sizeWithFont:[UIFont systemFontOfSize:20] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
     
     CGSize descriptionSize = [self.issueWrapper.issueDescription sizeWithFont:[UIFont systemFontOfSize:12] constrainedToSize:CGSizeMake(275.0, MAX_ROW_HEIGHT) lineBreakMode:UILineBreakModeWordWrap];
-    return subjectSize.height + descriptionSize.height + 30;
+    return subjectSize.height + descriptionSize.height + 40;
 }
 @end

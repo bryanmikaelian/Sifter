@@ -24,7 +24,7 @@
 
 - (void)drawRect:(CGRect)rect {
 #define CONTENT_WIDTH 275
-#define VERTICAL_OFFSET 10
+#define VERTICAL_OFFSET 20
     
 #define ISSUE_SUBJECT_FONT_SIZE 20
     
@@ -50,7 +50,7 @@
     subjectPoint = CGPointMake(5.0, 0.0);
     
     // Because the subject can be several lines, we will need to figure out the size needed for the height of the rectangle that will hold this text.
-    CGSize boundingSize = CGSizeMake(CONTENT_WIDTH, CGFLOAT_MAX);  // Ideally we want all the space!
+    CGSize boundingSize = CGSizeMake(CONTENT_WIDTH + 5, CGFLOAT_MAX);  // Ideally we want all the space!
     
     // Set the size to be equal to the font, with the constaint set to the bounding size.  Issue subjects can never exceed 200 characters, so three lines would be used at most.
     CGSize requiredSize = [self.issueWrapper.issueSubject sizeWithFont:issueSubjectFont constrainedToSize:boundingSize lineBreakMode:UILineBreakModeWordWrap];
