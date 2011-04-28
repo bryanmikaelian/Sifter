@@ -41,7 +41,7 @@
     
     // Color and font for the issue description
     UIFont *issueDescriptionFont = [UIFont systemFontOfSize:ISSUE_DESCRIPTION_FONT_SIZE];
-    UIColor *issueDescriptionTextColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:0.9];
+    UIColor *issueDescriptionTextColor = [UIColor blackColor];
     
     // Color and font for the issue category
     UIFont *issueCategoryFont = [UIFont systemFontOfSize:ISSUE_CATEGORY_FONT_SIZE];
@@ -70,16 +70,12 @@
     [issueCategoryTextColor set];
     categoryPoint = CGPointMake(5.0, requiredSize.height);
     
-
-    // Modified text for the category
-    NSString *fancyCategoryText = [@"Category: " stringByAppendingString:self.issueWrapper.issueCategory];
-    
     // How much horizontal space do we need?
-    CGSize requiredSizeCategory = [fancyCategoryText sizeWithFont:issueCategoryFont];
+    CGSize requiredSizeCategory = [self.issueWrapper.issueCategory sizeWithFont:issueCategoryFont];
     
     // Draw the rectangle to hold the text for the category.  This will be right below the last line of the subject.
     CGRect categoryRectangle = CGRectMake(categoryPoint.x, categoryPoint.y, requiredSizeCategory.width, ISSUE_CATEGORY_FONT_SIZE);
-    [fancyCategoryText drawInRect:categoryRectangle withFont:issueCategoryFont lineBreakMode:UILineBreakModeTailTruncation];
+    [self.issueWrapper.issueCategory drawInRect:categoryRectangle withFont:issueCategoryFont lineBreakMode:UILineBreakModeTailTruncation];
 
     //
     // Draw the description
