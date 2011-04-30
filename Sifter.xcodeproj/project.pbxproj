@@ -39,6 +39,8 @@
 		8E6442D9136876A600E3A923 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6442D8136876A600E3A923 /* DetailView.m */; };
 		8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCE9C1361C90F00937511 /* Milestone.m */; };
 		8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */; };
+		8EE438C9136CC1C10037BA2A /* tray_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EE438C8136CC1C10037BA2A /* tray_full.png */; };
+		8EE438CB136CC62A0037BA2A /* tray_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EE438CA136CC62A0037BA2A /* tray_full@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +104,8 @@
 		8E7CCE9C1361C90F00937511 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Milestone.m; sourceTree = "<group>"; };
 		8E7CCEAE1361CC9F00937511 /* MilestoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilestoneViewController.h; sourceTree = "<group>"; };
 		8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilestoneViewController.m; sourceTree = "<group>"; };
+		8EE438C8136CC1C10037BA2A /* tray_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tray_full.png; sourceTree = "<group>"; };
+		8EE438CA136CC62A0037BA2A /* tray_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tray_full@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +294,8 @@
 		8E44EBE21364663600653D72 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				8EE438C8136CC1C10037BA2A /* tray_full.png */,
+				8EE438CA136CC62A0037BA2A /* tray_full@2x.png */,
 				8E1157BF1365D4BB00C9FB49 /* case_30.png */,
 				8E44EBDF136465D000653D72 /* folder_64.png */,
 			);
@@ -347,6 +353,8 @@
 				8E40AFA5136119F300FE0808 /* MainWindow.xib in Resources */,
 				8E44EBE0136465D000653D72 /* folder_64.png in Resources */,
 				8E1157C01365D4BB00C9FB49 /* case_30.png in Resources */,
+				8EE438C9136CC1C10037BA2A /* tray_full.png in Resources */,
+				8EE438CB136CC62A0037BA2A /* tray_full@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
