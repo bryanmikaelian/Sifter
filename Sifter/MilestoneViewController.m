@@ -83,6 +83,15 @@
     }
 }
 
+- (NSString *) tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if([self.milestones count] == 0) {
+        return @"No Active Milestones";
+    }
+    else {
+        return nil;
+    }
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
