@@ -8,6 +8,7 @@
 
 #import "SifterAppDelegate.h"
 #import "RootViewController.h"
+#import "SearchViewController.h"
 
 @implementation SifterAppDelegate
 
@@ -42,9 +43,9 @@
     [anItem release];
     
     // Set up the search view controller
-    UIViewController *aViewController = [[UIViewController alloc] init];
-    self.searchViewController = aViewController;
-    [aViewController release];
+    SearchViewController *aSearchViewController = [[SearchViewController alloc] init];
+    self.searchViewController = aSearchViewController;
+    [aSearchViewController release];
     
     // Set up a tab bar item for the view controller
     UITabBarItem *aSystenItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:1];
