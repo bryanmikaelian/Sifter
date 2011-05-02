@@ -7,17 +7,20 @@
 //
 
 #import "SearchViewController.h"
-
+#import "Project.h"
 
 @implementation SearchViewController
 
 @synthesize searchBar;
 @synthesize searchController;
+@synthesize filteredData;
+@synthesize sifterProjects;
 
 - (void)dealloc {
     [super dealloc];
     [searchBar release];
     [searchController release];
+    [sifterProjects release];
 }
  
 
@@ -25,6 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Hold the filtered data
+    self.filteredData = [[NSMutableArray alloc] init];
     
     // Configure the search bar and its controller
     self.searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
@@ -64,19 +70,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.filteredData count];
+    }
+    else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
     
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        cell.textLabel.text = [[self.filteredData objectAtIndex:indexPath.row] valueForKey:@"name"];
+    }
+  
     return cell;
 }
 
@@ -86,9 +101,46 @@
 }
 
 #pragma mark - Search Display Controller delegate 
+- (void)filterContentForSearchText:(NSString *)searchText scope:(NSString*)scope {
+    
+    // Which scope are we doing?
+    if (scope == @"Projects") {
+        // Clear all the filtered projects
+        [self.filteredData removeAllObjects];
+                
+        // Filter on the projects as a search occurs
+        for (id project in self.sifterProjects) {
+            NSRange projectResults = [[project valueForKey:@"name"] rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (projectResults.length > 0) {
+                [self.filteredData addObject:project];
+            }
+        }
+    }
+    
+    else if (scope == @"Milestones") {
+        [self.filteredData removeAllObjects];
+    }
+    
+}
+
 - (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    // Return YES to cause the search result table view to be reloaded.
+    
+    [self filterContentForSearchText:searchString scope:[[self.searchController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+
     return YES;
+}
+
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    [self filterContentForSearchText:[self.searchController.searchBar text] scope:
+    [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+ 
+    return YES;
+}
+
+
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+    self.sifterProjects = [Project getAllProjectsFromSifter];
 }
 
 @end
