@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // Configure the search bar and its controller
     self.searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
     [self.searchBar sizeToFit];
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
@@ -33,6 +35,9 @@
     self.searchController.searchResultsDataSource = self;
     self.searchController.searchResultsDelegate = self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+    // Configure the scope bar.  We will have Projects, Milestones, and Issues.
+    self.searchController.searchBar.scopeButtonTitles = [NSArray arrayWithObjects:@"Projects", @"Milestones", @"Issues", nil];
     
     // "Hide" the cells.
     self.tableView.backgroundColor = [UIColor grayColor];
