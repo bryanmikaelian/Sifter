@@ -13,13 +13,15 @@
     UISearchBar *searchBar;
     UISearchDisplayController *searchDisplayController;
     NSMutableArray *filteredData;
-    NSMutableArray *sifterProjects;
+    NSMutableArray *allProjects;
+    NSMutableArray *allMilestones;
 }
 
 
 @property (nonatomic, retain) UISearchBar *searchBar;
 @property (nonatomic, retain) UISearchDisplayController *searchController;
 @property (nonatomic, retain) NSMutableArray *filteredData;
-@property (nonatomic, retain) NSMutableArray *sifterProjects;
+@property (nonatomic, retain) NSMutableArray *allProjects;
+@property (nonatomic, retain) NSMutableArray *allMilestones;
 
 @end

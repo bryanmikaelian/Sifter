@@ -8,19 +8,22 @@
 
 #import "SearchViewController.h"
 #import "Project.h"
+#import "Milestone.h"
 
 @implementation SearchViewController
 
 @synthesize searchBar;
 @synthesize searchController;
 @synthesize filteredData;
-@synthesize sifterProjects;
+@synthesize allProjects;
+@synthesize allMilestones;
 
 - (void)dealloc {
     [super dealloc];
     [searchBar release];
     [searchController release];
-    [sifterProjects release];
+    [allProjects release];
+    [allMilestones release];
 }
  
 
@@ -31,6 +34,9 @@
     
     // Hold the filtered data
     self.filteredData = [[NSMutableArray alloc] init];
+    
+    // Hold the milestones
+    self.allMilestones = [[NSMutableArray alloc] init];
     
     // Configure the search bar and its controller
     self.searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
@@ -74,7 +80,7 @@
         return [self.filteredData count];
     }
     else {
-        return 1;
+        return 0;
     }
 }
 
@@ -109,7 +115,7 @@
         [self.filteredData removeAllObjects];
                 
         // Filter on the projects as a search occurs
-        for (id project in self.sifterProjects) {
+        for (id project in self.allProjects) {
             NSRange projectResults = [[project valueForKey:@"name"] rangeOfString:searchText options:NSCaseInsensitiveSearch];
             if (projectResults.length > 0) {
                 [self.filteredData addObject:project];
@@ -118,7 +124,16 @@
     }
     
     else if (scope == @"Milestones") {
+        // Remove all the objects
         [self.filteredData removeAllObjects];
+        
+        // Filter on the milestones as a search occurs
+        for (id milestone in self.allMilestones) {
+            NSRange milestoneResults = [[milestone valueForKey:@"name"] rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (milestoneResults.length > 0) {
+                [self.filteredData addObject:milestone];
+            }
+        }
     }
     
     else if (scope == @"Issues") {
@@ -144,7 +159,14 @@
 
 
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
-    self.sifterProjects = [Project getAllProjectsFromSifter];
+    // Get all the projects
+    self.allProjects = [Project getAllProjectsFromSifter];
+    
+    // Get all the milestones
+    for (id project in self.allProjects) {
+        // With each project, we need to get all of the milestones for that project
+        [self.allMilestones addObjectsFromArray:[Milestone getProjectMilestonesWithGivenProjectURL:[project valueForKey:@"api_milestones_url"]]];
+    }
 }
 
 @end
