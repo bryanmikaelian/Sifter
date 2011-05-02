@@ -87,7 +87,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    
+    // Show the filtered data if we are searching and its search results table is present
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         cell.textLabel.text = [[self.filteredData objectAtIndex:indexPath.row] valueForKey:@"name"];
     }
@@ -118,6 +118,10 @@
     }
     
     else if (scope == @"Milestones") {
+        [self.filteredData removeAllObjects];
+    }
+    
+    else if (scope == @"Issues") {
         [self.filteredData removeAllObjects];
     }
     
