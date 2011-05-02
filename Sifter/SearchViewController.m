@@ -157,8 +157,7 @@
     return YES;
 }
 
-
-- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
+- (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller {
     // Get all the projects
     self.allProjects = [Project getAllProjectsFromSifter];
     
@@ -166,7 +165,7 @@
     for (id project in self.allProjects) {
         // With each project, we need to get all of the milestones for that project
         [self.allMilestones addObjectsFromArray:[Milestone getProjectMilestonesWithGivenProjectURL:[project valueForKey:@"api_milestones_url"]]];
-    }
+    }   
 }
 
 @end
