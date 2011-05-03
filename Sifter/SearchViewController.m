@@ -18,6 +18,7 @@
 @synthesize allProjects;
 @synthesize allMilestones;
 @synthesize milestoneViewController;
+@synthesize issueViewController;
 
 - (void)dealloc {
     [super dealloc];
@@ -26,6 +27,7 @@
     [allProjects release];
     [allMilestones release];
     [milestoneViewController release];
+    [issueViewController release];
 }
  
 
@@ -123,7 +125,7 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         // Which scope is selected?
         if ([self.searchDisplayController.searchBar selectedScopeButtonIndex] == 0) {
-            // Projects
+            // Projects scope was selected
             NSString *milestoneURL = [[self.filteredData objectAtIndex:indexPath.row] valueForKey:@"api_milestones_url"];
             self.milestoneViewController = [[MilestoneViewController alloc] initWithProjectURL:milestoneURL 
                                                                                       andStyle:UITableViewStyleGrouped];
@@ -134,6 +136,20 @@
             [self.searchDisplayController.searchBar resignFirstResponder];
             
             [[self navigationController] pushViewController:milestoneViewController animated:YES];
+        }
+        else if ([self.searchDisplayController.searchBar selectedScopeButtonIndex] == 1) {
+            // Milestones was selected
+            NSString *issuesURL = [[self.filteredData objectAtIndex:indexPath.row] valueForKey:@"api_issues_url"];
+            self.issueViewController = [[IssueViewController alloc] initWithIssueURL:issuesURL 
+                                                                                      andStyle:UITableViewStylePlain];
+            
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+            // Hide the keyboard
+            [self.searchDisplayController.searchBar resignFirstResponder];
+            
+            [[self navigationController] pushViewController:issueViewController animated:YES];
+            
         }
     }
 }

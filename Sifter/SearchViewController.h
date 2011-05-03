@@ -18,6 +18,7 @@
     NSMutableArray *allProjects;
     NSMutableArray *allMilestones;
     MilestoneViewController *milestoneViewController;
+    IssueViewController *issueViewController;
 }
 
 
@@ -27,5 +28,6 @@
 @property (nonatomic, retain) NSMutableArray *allProjects;
 @property (nonatomic, retain) NSMutableArray *allMilestones;
 @property (nonatomic, retain) MilestoneViewController *milestoneViewController;
+@property (nonatomic, retain) IssueViewController *issueViewController;
 
 @end
