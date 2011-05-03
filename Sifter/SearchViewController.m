@@ -9,6 +9,8 @@
 #import "SearchViewController.h"
 #import "Project.h"
 #import "Milestone.h"
+#import "Issue.h"
+#import "IssueWrapper.h"
 
 @implementation SearchViewController
 
@@ -17,8 +19,10 @@
 @synthesize filteredData;
 @synthesize allProjects;
 @synthesize allMilestones;
+@synthesize allIssues;
 @synthesize milestoneViewController;
 @synthesize issueViewController;
+@synthesize issueDetailViewController;
 
 - (void)dealloc {
     [super dealloc];
@@ -26,8 +30,10 @@
     [searchController release];
     [allProjects release];
     [allMilestones release];
+    [allIssues release];
     [milestoneViewController release];
     [issueViewController release];
+    [issueDetailViewController release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
  
@@ -42,6 +48,9 @@
     
     // Hold the milestones
     self.allMilestones = [[NSMutableArray alloc] init];
+    
+    // Hold the issues
+    self.allIssues = [[NSMutableArray alloc] init];
     
     // Configure the search bar and its controller
     self.searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
@@ -117,7 +126,17 @@
     
     // Show the filtered data if we are searching and its search results table is present
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        cell.textLabel.text = [[self.filteredData objectAtIndex:indexPath.row] valueForKey:@"name"];
+        
+        // Are we looking at Project and Milestones or are we looking at Issues?
+        if (![[self.filteredData objectAtIndex:indexPath.row] isKindOfClass:[IssueWrapper class]]) {
+            // Projects or Milestones
+            cell.textLabel.text = [[self.filteredData objectAtIndex:indexPath.row] valueForKey:@"name"];
+        }
+        else {
+            // Issues
+            cell.textLabel.text = [[self.filteredData objectAtIndex:indexPath.row] issueSubject];
+        }
+        
     }
   
     return cell;
@@ -156,6 +175,20 @@
             [[self navigationController] pushViewController:self.issueViewController animated:YES];
             
         }
+        
+        else if ([self.searchDisplayController.searchBar selectedScopeButtonIndex] == 2) {
+            // Issue was selected
+            self.issueDetailViewController = [[IssueDetailViewController alloc] initWithIssue:[self.allIssues objectAtIndex:indexPath.row] andStyle:UITableViewStyleGrouped];
+            
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            [self.navigationController pushViewController:self.issueDetailViewController animated:YES];
+            
+        
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+            // Hide the keyboard
+            [self.searchDisplayController.searchBar resignFirstResponder];
+        }
     }
 }
  
@@ -191,7 +224,15 @@
     }
     
     else if (scope == @"Issues") {
+        // Remove all the objects
         [self.filteredData removeAllObjects];
+        
+        for (IssueWrapper *issue in self.allIssues) {
+            NSRange milestoneResults = [issue.issueSubject rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (milestoneResults.length > 0) {
+                [self.filteredData addObject:issue];
+            }
+        }
     }
     
 }
@@ -219,6 +260,15 @@
     for (id project in self.allProjects) {
         // With each project, we need to get all of the milestones for that project
         [self.allMilestones addObjectsFromArray:[Milestone getProjectMilestonesWithGivenProjectURL:[project valueForKey:@"api_milestones_url"]]];
+        
+        // We also need the issues for that project
+        NSMutableArray *issues  = [Issue getIssuesWithAGivenURL:[project valueForKey:@"api_issues_url"]];
+        
+        // Create the issue wrappers
+        for (id issue in issues) {
+            IssueWrapper *anIssueWrapper = [[[IssueWrapper alloc] initWithIssue:issue] autorelease];
+            [self.allIssues addObject:anIssueWrapper];
+        }
     }   
 }
 
