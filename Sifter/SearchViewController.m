@@ -45,7 +45,9 @@
     
     // Configure the search bar and its controller
     self.searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
+    self.searchBar.placeholder = @"e.g. Projects, Issues, etc.";
     [self.searchBar sizeToFit];
+    
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
     self.searchController.searchBar.tintColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
     self.searchController.delegate = self;
@@ -57,8 +59,8 @@
     self.searchController.searchBar.scopeButtonTitles = [NSArray arrayWithObjects:@"Projects", @"Milestones", @"Issues", nil];
     
     // Configure the navigation controller's navigation bar
-    self.navigationController.navigationBarHidden = YES;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
+    self.title = @"Search";
     
     // "Hide" the cells.
     self.tableView.backgroundColor = [UIColor grayColor];
