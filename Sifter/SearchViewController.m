@@ -57,6 +57,7 @@
     
     // Configure the navigation controller's navigation bar
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
+    self.navigationController.navigationBar.backItem.title = @"Search";
     
     // "Hide" the cells.
     self.tableView.backgroundColor = [UIColor grayColor];
