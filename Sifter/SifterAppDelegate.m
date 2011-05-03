@@ -18,6 +18,7 @@
 @synthesize rootViewController;
 @synthesize tabBarController;
 @synthesize searchViewController;
+@synthesize searchNavigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -47,13 +48,22 @@
     self.searchViewController = aSearchViewController;
     [aSearchViewController release];
     
+    // Set up the search view controller's navigation controller
+    UINavigationController *aSecondNavigationController = [[UINavigationController alloc] initWithRootViewController:self.searchViewController];
+   
     // Set up a tab bar item for the view controller
     UITabBarItem *aSystenItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:1];
-    self.searchViewController.tabBarItem = aSystenItem;
+    aSecondNavigationController.tabBarItem = aSystenItem;
     [aSystenItem release];
-
+    
+    // Assign the variables
+    self.searchNavigationController = aSecondNavigationController;
+    [aSecondNavigationController release];
+    self.searchNavigationController.title = @"Search";
+    [self.searchNavigationController setNavigationBarHidden:YES];
+    
     // Add the views to the tab bar controller
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.searchViewController, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.searchNavigationController, nil];
     
     // Add the tab bar controller's view to the window.
     [self.window addSubview:[self.tabBarController view]];
@@ -108,6 +118,7 @@
     [rootViewController release];
     [tabBarController release];
     [searchViewController release];
+    [searchNavigationController release];
     [super dealloc];
 }
 

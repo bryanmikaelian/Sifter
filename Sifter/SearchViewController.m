@@ -17,6 +17,7 @@
 @synthesize filteredData;
 @synthesize allProjects;
 @synthesize allMilestones;
+@synthesize milestoneViewController;
 
 - (void)dealloc {
     [super dealloc];
@@ -24,6 +25,7 @@
     [searchController release];
     [allProjects release];
     [allMilestones release];
+    [milestoneViewController release];
 }
  
 
@@ -51,6 +53,9 @@
     // Configure the scope bar.  We will have Projects, Milestones, and Issues.
     self.searchController.searchBar.scopeButtonTitles = [NSArray arrayWithObjects:@"Projects", @"Milestones", @"Issues", nil];
     
+    // Configure the navigation controller's navigation bar
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
+    
     // "Hide" the cells.
     self.tableView.backgroundColor = [UIColor grayColor];
     self.tableView.separatorColor = [UIColor grayColor];
@@ -60,6 +65,16 @@
     
     [self.tableView reloadData];
     
+}
+
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -104,7 +119,25 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        // Which scope is selected?
+        if ([self.searchDisplayController.searchBar selectedScopeButtonIndex] == 0) {
+            // Projects
+            NSString *milestoneURL = [[self.filteredData objectAtIndex:indexPath.row] valueForKey:@"api_milestones_url"];
+            self.milestoneViewController = [[MilestoneViewController alloc] initWithProjectURL:milestoneURL 
+                                                                                      andStyle:UITableViewStyleGrouped];
+            
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
+            
+            // Hide the keyboard
+            [self.searchDisplayController.searchBar resignFirstResponder];
+            
+            [[self navigationController] pushViewController:milestoneViewController animated:YES];
+        }
+    }
 }
+ 
 
 #pragma mark - Search Display Controller delegate 
 - (void)filterContentForSearchText:(NSString *)searchText scope:(NSString*)scope {

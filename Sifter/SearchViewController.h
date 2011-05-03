@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MilestoneViewController.h"
+#import "IssueViewController.h"
+#import "IssueDetailViewController.h"
 
 @interface SearchViewController : UITableViewController <UITableViewDelegate, UISearchDisplayDelegate> {
     UISearchBar *searchBar;
@@ -15,6 +17,7 @@
     NSMutableArray *filteredData;
     NSMutableArray *allProjects;
     NSMutableArray *allMilestones;
+    MilestoneViewController *milestoneViewController;
 }
 
 
@@ -23,5 +26,6 @@
 @property (nonatomic, retain) NSMutableArray *filteredData;
 @property (nonatomic, retain) NSMutableArray *allProjects;
 @property (nonatomic, retain) NSMutableArray *allMilestones;
+@property (nonatomic, retain) MilestoneViewController *milestoneViewController;
 
 @end
