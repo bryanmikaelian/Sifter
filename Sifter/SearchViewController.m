@@ -45,7 +45,7 @@
     
     // Configure the search bar and its controller
     self.searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
-    self.searchBar.placeholder = @"e.g. Projects, Issues, etc.";
+    self.searchBar.placeholder = @"Search";
     [self.searchBar sizeToFit];
     
     self.searchController = [[UISearchDisplayController alloc] initWithSearchBar:self.searchBar contentsController:self];
