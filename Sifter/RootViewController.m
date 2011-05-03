@@ -93,7 +93,7 @@
                                                                                andStyle:UITableViewStyleGrouped];
     
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:milestoneViewController animated:YES];
+    [self.navigationController pushViewController:self.milestoneViewController animated:YES];
 }
 
 @end

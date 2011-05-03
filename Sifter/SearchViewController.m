@@ -129,7 +129,7 @@
             // Hide the keyboard
             [self.searchDisplayController.searchBar resignFirstResponder];
             
-            [[self navigationController] pushViewController:milestoneViewController animated:YES];
+            [[self navigationController] pushViewController:self.milestoneViewController animated:YES];
         }
         else if ([self.searchDisplayController.searchBar selectedScopeButtonIndex] == 1) {
             // Milestones was selected
@@ -142,7 +142,7 @@
             // Hide the keyboard
             [self.searchDisplayController.searchBar resignFirstResponder];
             
-            [[self navigationController] pushViewController:issueViewController animated:YES];
+            [[self navigationController] pushViewController:self.issueViewController animated:YES];
             
         }
     }

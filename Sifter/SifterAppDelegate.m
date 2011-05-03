@@ -49,7 +49,7 @@
     [aSearchViewController release];
     
     // Set up the search view controller's navigation controller
-    UINavigationController *aSecondNavigationController = [[UINavigationController alloc] initWithRootViewController:searchViewController];
+    UINavigationController *aSecondNavigationController = [[UINavigationController alloc] initWithRootViewController:self.searchViewController];
     aSecondNavigationController.title = @"Search";
     self.searchNavigationController = aSecondNavigationController;
     [aSecondNavigationController release];
@@ -60,7 +60,7 @@
     [aSystemItem release];
 
     // Add the views to the tab bar controller
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navigationController, searchNavigationController, nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:self.navigationController, self.searchNavigationController, nil];
     
     // Add the tab bar controller's view to the window.
     [self.window addSubview:[self.tabBarController view]];

@@ -125,7 +125,7 @@
                                                                                   andStyle:UITableViewStylePlain];
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self.navigationController pushViewController:issueViewController animated:YES];
+        [self.navigationController pushViewController:self.issueViewController animated:YES];
     }
     
     else {
@@ -135,7 +135,7 @@
                                                                                  andStyle:UITableViewStylePlain];
         
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [self.navigationController pushViewController:issueViewController animated:YES];
+        [self.navigationController pushViewController:self.issueViewController animated:YES];
     }
 }
 

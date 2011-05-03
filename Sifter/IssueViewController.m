@@ -95,7 +95,7 @@
     self.issueDetailViewController = [[IssueDetailViewController alloc] initWithIssue:[self.issueWrappers objectAtIndex:indexPath.row] andStyle:UITableViewStyleGrouped];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self.navigationController pushViewController:issueDetailViewController animated:YES];
+    [self.navigationController pushViewController:self.issueDetailViewController animated:YES];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
