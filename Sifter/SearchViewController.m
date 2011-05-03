@@ -228,8 +228,9 @@
         [self.filteredData removeAllObjects];
         
         for (IssueWrapper *issue in self.allIssues) {
-            NSRange milestoneResults = [issue.issueSubject rangeOfString:searchText options:NSCaseInsensitiveSearch];
-            if (milestoneResults.length > 0) {
+            NSRange issueSubjectResults = [issue.issueSubject rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            NSRange issueNumberResults = [issue.issueNumber rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            if (issueSubjectResults.length > 0 || issueNumberResults.length > 0) {
                 [self.filteredData addObject:issue];
             }
         }
