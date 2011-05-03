@@ -28,6 +28,7 @@
     [allMilestones release];
     [milestoneViewController release];
     [issueViewController release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
  
 
@@ -56,8 +57,8 @@
     self.searchController.searchBar.scopeButtonTitles = [NSArray arrayWithObjects:@"Projects", @"Milestones", @"Issues", nil];
     
     // Configure the navigation controller's navigation bar
+    self.navigationController.navigationBarHidden = YES;
     self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.22 green:0.33 blue:0.53 alpha:1.0];
-    self.navigationController.navigationBar.backItem.title = @"Search";
     
     // "Hide" the cells.
     self.tableView.backgroundColor = [UIColor grayColor];
@@ -67,17 +68,7 @@
     self.tableView.scrollEnabled = NO;
     
     [self.tableView reloadData];
-    
-}
-
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
-}
-
-- (void) viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+        
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
