@@ -38,12 +38,6 @@
 		8E6442D21368612800E3A923 /* IssueDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6442D11368612800E3A923 /* IssueDetailViewController.m */; };
 		8E6442D61368765A00E3A923 /* DetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6442D51368765900E3A923 /* DetailCell.m */; };
 		8E6442D9136876A600E3A923 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6442D8136876A600E3A923 /* DetailView.m */; };
-		8E6B4A2413709CF7005F02F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF91136119F200FE0808 /* UIKit.framework */; };
-		8E6B4A2513709CF7005F02F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF93136119F200FE0808 /* Foundation.framework */; };
-		8E6B4A2613709CF7005F02F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E40AF95136119F200FE0808 /* CoreGraphics.framework */; };
-		8E6B4A2C13709CF8005F02F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B4A2A13709CF8005F02F8 /* InfoPlist.strings */; };
-		8E6B4A2F13709CF8005F02F8 /* SifterTest.h in Resources */ = {isa = PBXBuildFile; fileRef = 8E6B4A2E13709CF8005F02F8 /* SifterTest.h */; };
-		8E6B4A3113709CF8005F02F8 /* SifterTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6B4A3013709CF8005F02F8 /* SifterTest.m */; };
 		8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCE9C1361C90F00937511 /* Milestone.m */; };
 		8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */; };
 		8EE438C9136CC1C10037BA2A /* tray_full.png in Resources */ = {isa = PBXBuildFile; fileRef = 8EE438C8136CC1C10037BA2A /* tray_full.png */; };
@@ -109,12 +103,6 @@
 		8E6442D51368765900E3A923 /* DetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCell.m; sourceTree = "<group>"; };
 		8E6442D7136876A600E3A923 /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
 		8E6442D8136876A600E3A923 /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
-		8E6B4A2313709CF7005F02F8 /* SifterTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SifterTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E6B4A2913709CF8005F02F8 /* SifterTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SifterTest-Info.plist"; sourceTree = "<group>"; };
-		8E6B4A2B13709CF8005F02F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8E6B4A2D13709CF8005F02F8 /* SifterTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SifterTest-Prefix.pch"; sourceTree = "<group>"; };
-		8E6B4A2E13709CF8005F02F8 /* SifterTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SifterTest.h; sourceTree = "<group>"; };
-		8E6B4A3013709CF8005F02F8 /* SifterTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SifterTest.m; sourceTree = "<group>"; };
 		8E7CCE9B1361C90F00937511 /* Milestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Milestone.h; sourceTree = "<group>"; };
 		8E7CCE9C1361C90F00937511 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Milestone.m; sourceTree = "<group>"; };
 		8E7CCEAE1361CC9F00937511 /* MilestoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilestoneViewController.h; sourceTree = "<group>"; };
@@ -131,16 +119,6 @@
 				8E40AF92136119F200FE0808 /* UIKit.framework in Frameworks */,
 				8E40AF94136119F200FE0808 /* Foundation.framework in Frameworks */,
 				8E40AF96136119F200FE0808 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8E6B4A1F13709CF7005F02F8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E6B4A2413709CF7005F02F8 /* UIKit.framework in Frameworks */,
-				8E6B4A2513709CF7005F02F8 /* Foundation.framework in Frameworks */,
-				8E6B4A2613709CF7005F02F8 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				8E40AF97136119F200FE0808 /* Sifter */,
-				8E6B4A2713709CF7005F02F8 /* SifterTest */,
 				8E40AF90136119F200FE0808 /* Frameworks */,
 				8E40AF8E136119F200FE0808 /* Products */,
 			);
@@ -184,7 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				8E40AF8D136119F200FE0808 /* Sifter.app */,
-				8E6B4A2313709CF7005F02F8 /* SifterTest.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -331,26 +307,6 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		8E6B4A2713709CF7005F02F8 /* SifterTest */ = {
-			isa = PBXGroup;
-			children = (
-				8E6B4A2E13709CF8005F02F8 /* SifterTest.h */,
-				8E6B4A3013709CF8005F02F8 /* SifterTest.m */,
-				8E6B4A2813709CF8005F02F8 /* Supporting Files */,
-			);
-			path = SifterTest;
-			sourceTree = "<group>";
-		};
-		8E6B4A2813709CF8005F02F8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8E6B4A2913709CF8005F02F8 /* SifterTest-Info.plist */,
-				8E6B4A2A13709CF8005F02F8 /* InfoPlist.strings */,
-				8E6B4A2D13709CF8005F02F8 /* SifterTest-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -371,24 +327,6 @@
 			productReference = 8E40AF8D136119F200FE0808 /* Sifter.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8E6B4A2213709CF7005F02F8 /* SifterTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E6B4A3213709CF8005F02F8 /* Build configuration list for PBXNativeTarget "SifterTest" */;
-			buildPhases = (
-				8E6B4A1E13709CF7005F02F8 /* Sources */,
-				8E6B4A1F13709CF7005F02F8 /* Frameworks */,
-				8E6B4A2013709CF7005F02F8 /* Resources */,
-				8E6B4A2113709CF7005F02F8 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SifterTest;
-			productName = SifterTest;
-			productReference = 8E6B4A2313709CF7005F02F8 /* SifterTest.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -407,7 +345,6 @@
 			projectRoot = "";
 			targets = (
 				8E40AF8C136119F200FE0808 /* Sifter */,
-				8E6B4A2213709CF7005F02F8 /* SifterTest */,
 			);
 		};
 /* End PBXProject section */
@@ -426,32 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E6B4A2013709CF7005F02F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E6B4A2C13709CF8005F02F8 /* InfoPlist.strings in Resources */,
-				8E6B4A2F13709CF8005F02F8 /* SifterTest.h in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		8E6B4A2113709CF7005F02F8 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E40AF89136119F200FE0808 /* Sources */ = {
@@ -487,14 +399,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E6B4A1E13709CF7005F02F8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E6B4A3113709CF8005F02F8 /* SifterTest.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -512,14 +416,6 @@
 				8E40AFA4136119F300FE0808 /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		8E6B4A2A13709CF8005F02F8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E6B4A2B13709CF8005F02F8 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -590,46 +486,6 @@
 			};
 			name = Release;
 		};
-		8E6B4A3313709CF8005F02F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SifterTest/SifterTest-Prefix.pch";
-				INFOPLIST_FILE = "SifterTest/SifterTest-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		8E6B4A3413709CF8005F02F8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SifterTest/SifterTest-Prefix.pch";
-				INFOPLIST_FILE = "SifterTest/SifterTest-Info.plist";
-				OTHER_LDFLAGS = (
-					"-framework",
-					SenTestingKit,
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -650,14 +506,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		8E6B4A3213709CF8005F02F8 /* Build configuration list for PBXNativeTarget "SifterTest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E6B4A3313709CF8005F02F8 /* Debug */,
-				8E6B4A3413709CF8005F02F8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
