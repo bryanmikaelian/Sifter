@@ -65,9 +65,22 @@
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-	return @"Unarchived Projects";
+    if ([self.projects count] == 0) {
+        return @"";
+    }
+    else {
+        return @"Unarchived Projects";
+    }
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
+    if ([self.projects count] == 0) {
+        return @"No projects found";
+    }
+    else {
+        return @"";
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
