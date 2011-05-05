@@ -13,8 +13,15 @@
 
 
 + (NSMutableArray *) getAllProjectsFromSifter {
+    
+    // Base URL.  This will drive all requests against sifter's API.  The app starts with Projects and the other URLs are pulled as data is parsed.
+    NSString *sifterURL = @"https://fellowshiptech.sifterapp.com";
+    
+    // Append the project's api URL request.
+    sifterURL = [sifterURL stringByAppendingString:@"/api/projects"];
+    
     // Make a request against Sifter for the projects
-    NSData *sifterProjectsJSON = [APIBase makeRequestAgainstSifterAPIWithURL:@"https://fellowshiptech.sifterapp.com/api/projects"];
+    NSData *sifterProjectsJSON = [APIBase makeRequestAgainstSifterAPIWithURL:sifterURL];
     
     // Parse the JSON for the projects.  This will map to a NSArray with each element being a NSDictionary item
     NSDictionary *parsedProjects = [[CJSONDeserializer deserializer] deserializeAsDictionary:sifterProjectsJSON error:nil];
