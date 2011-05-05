@@ -14,6 +14,7 @@
 	<array>
 		<string>Icon.png</string>
 		<string>Icon_NonRetina.png</string>
+		<string>Icon@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>bmikaelian.${PRODUCT_NAME:rfc1034identifier}</string>
