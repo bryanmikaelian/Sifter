@@ -13,7 +13,6 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>Icon.png</string>
-		<string>Icon_NonRetina.png</string>
 		<string>Icon@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
