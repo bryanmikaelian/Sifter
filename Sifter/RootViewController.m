@@ -38,7 +38,7 @@
     
     // Get the projects
     self.projects = [Project getAllProjectsFromSifter];
-    
+        
     [super viewDidLoad];
 }
 
