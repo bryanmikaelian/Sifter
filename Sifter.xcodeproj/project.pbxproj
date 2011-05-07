@@ -40,6 +40,7 @@
 		8E6442D9136876A600E3A923 /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E6442D8136876A600E3A923 /* DetailView.m */; };
 		8E7CCE9D1361C90F00937511 /* Milestone.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCE9C1361C90F00937511 /* Milestone.m */; };
 		8E7CCEB01361CC9F00937511 /* MilestoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */; };
+		8EC223F9137592D30034ED5B /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 8EC223F8137592D30034ED5B /* iTunesArtwork */; };
 		8ECA50611372DC9000DFA521 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA50601372DC9000DFA521 /* Icon@2x.png */; };
 		8ECA50631372DD8700DFA521 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA50621372DD8700DFA521 /* Icon.png */; };
 		8ECA50651372DFE300DFA521 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8ECA50641372DFE300DFA521 /* Default@2x.png */; };
@@ -111,6 +112,7 @@
 		8E7CCE9C1361C90F00937511 /* Milestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Milestone.m; sourceTree = "<group>"; };
 		8E7CCEAE1361CC9F00937511 /* MilestoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MilestoneViewController.h; sourceTree = "<group>"; };
 		8E7CCEAF1361CC9F00937511 /* MilestoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MilestoneViewController.m; sourceTree = "<group>"; };
+		8EC223F8137592D30034ED5B /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
 		8ECA50601372DC9000DFA521 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "../Icon@2x.png"; sourceTree = "<group>"; };
 		8ECA50621372DD8700DFA521 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
 		8ECA50641372DFE300DFA521 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 				8ECA50661372DFF000DFA521 /* Default.png */,
 				8ECA50641372DFE300DFA521 /* Default@2x.png */,
 				8ECA50621372DD8700DFA521 /* Icon.png */,
+				8EC223F8137592D30034ED5B /* iTunesArtwork */,
 				8ECA50601372DC9000DFA521 /* Icon@2x.png */,
 				8EE438C8136CC1C10037BA2A /* tray_full.png */,
 				8EE438CA136CC62A0037BA2A /* tray_full@2x.png */,
@@ -376,6 +379,7 @@
 				8ECA50631372DD8700DFA521 /* Icon.png in Resources */,
 				8ECA50651372DFE300DFA521 /* Default@2x.png in Resources */,
 				8ECA50671372DFF000DFA521 /* Default.png in Resources */,
+				8EC223F9137592D30034ED5B /* iTunesArtwork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +441,37 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8E39C37213747E6E0089C274 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = "Ad Hoc";
+		};
+		8E39C37313747E6E0089C274 /* Ad Hoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bryan Mikaelian";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Sifter/Sifter-Prefix.pch";
+				INFOPLIST_FILE = "Sifter/Sifter-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "25094B0D-AE13-49C8-9CEC-173D20EABA0E";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = "Ad Hoc";
+		};
 		8E40AFA6136119F300FE0808 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -490,13 +525,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bryan Mikaelian";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Sifter/Sifter-Prefix.pch";
 				INFOPLIST_FILE = "Sifter/Sifter-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "25094B0D-AE13-49C8-9CEC-173D20EABA0E";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -510,6 +545,7 @@
 			buildConfigurations = (
 				8E40AFA6136119F300FE0808 /* Debug */,
 				8E40AFA7136119F300FE0808 /* Release */,
+				8E39C37213747E6E0089C274 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -519,6 +555,7 @@
 			buildConfigurations = (
 				8E40AFA9136119F300FE0808 /* Debug */,
 				8E40AFAA136119F300FE0808 /* Release */,
+				8E39C37313747E6E0089C274 /* Ad Hoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
