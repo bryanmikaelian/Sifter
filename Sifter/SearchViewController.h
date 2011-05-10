@@ -34,4 +34,6 @@
 @property (nonatomic, retain) IssueViewController *issueViewController;
 @property (nonatomic, retain) IssueDetailViewController *issueDetailViewController;
 
+- (id) initWithData;
+
 @end

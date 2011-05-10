@@ -44,7 +44,7 @@
     [anItem release];
     
     // Set up the search view controller
-    SearchViewController *aSearchViewController = [[SearchViewController alloc] init];
+    SearchViewController *aSearchViewController = [[SearchViewController alloc] initWithData];
     self.searchViewController = aSearchViewController;
     [aSearchViewController release];
     

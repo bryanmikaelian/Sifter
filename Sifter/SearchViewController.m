@@ -36,6 +36,37 @@
     [issueDetailViewController release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (id)initWithData {
+    
+    if ((self = [super init])) {
+        // Hold the milestones
+        self.allMilestones = [[NSMutableArray alloc] init];
+        
+        // Hold the issues
+        self.allIssues = [[NSMutableArray alloc] init];
+        
+        // Get all the projects
+        self.allProjects = [Project getAllProjectsFromSifter];
+        
+        // Get all the milestones
+        for (id project in self.allProjects) {
+            // With each project, we need to get all of the milestones for that project
+            [self.allMilestones addObjectsFromArray:[Milestone getProjectMilestonesWithGivenProjectURL:[project valueForKey:@"api_milestones_url"]]];
+            
+            // We also need the issues for that project
+            NSMutableArray *issues  = [Issue getIssuesWithAGivenURL:[project valueForKey:@"api_issues_url"]];
+            
+            // Create the issue wrappers
+            for (id issue in issues) {
+                IssueWrapper *anIssueWrapper = [[[IssueWrapper alloc] initWithIssue:issue] autorelease];
+                [self.allIssues addObject:anIssueWrapper];
+            }
+        }
+    }
+        
+    return self;
+}
  
 
 #pragma mark - View lifecycle
@@ -45,12 +76,6 @@
     
     // Hold the filtered data
     self.filteredData = [[NSMutableArray alloc] init];
-    
-    // Hold the milestones
-    self.allMilestones = [[NSMutableArray alloc] init];
-    
-    // Hold the issues
-    self.allIssues = [[NSMutableArray alloc] init];
     
     // Configure the search bar and its controller
     self.searchBar = [[UISearchBar alloc] initWithFrame:self.tableView.tableHeaderView.frame];
@@ -251,26 +276,6 @@
     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
  
     return YES;
-}
-
-- (void)searchDisplayControllerDidBeginSearch:(UISearchDisplayController *)controller {
-    // Get all the projects
-    self.allProjects = [Project getAllProjectsFromSifter];
-    
-    // Get all the milestones
-    for (id project in self.allProjects) {
-        // With each project, we need to get all of the milestones for that project
-        [self.allMilestones addObjectsFromArray:[Milestone getProjectMilestonesWithGivenProjectURL:[project valueForKey:@"api_milestones_url"]]];
-        
-        // We also need the issues for that project
-        NSMutableArray *issues  = [Issue getIssuesWithAGivenURL:[project valueForKey:@"api_issues_url"]];
-        
-        // Create the issue wrappers
-        for (id issue in issues) {
-            IssueWrapper *anIssueWrapper = [[[IssueWrapper alloc] initWithIssue:issue] autorelease];
-            [self.allIssues addObject:anIssueWrapper];
-        }
-    }   
 }
 
 @end
